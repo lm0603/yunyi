@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>评价</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/lm_pingjia.css" />
+		<style type="text/css">
+			.item {
+				float: left;
+			}
+			
+			.star_list {
+				overflow: hidden;
+			}
+			
+			.liRight li>img {
+				height: 100%;
+				max-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+
+			<div class="homeList_detail">
+				<div class="homeList_detail_img">
+					<img src="../../img/about1.png" alt="" />
+				</div>
+				<div class="homeList_detail_content">
+					<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+					<p class="content_time">2017-07-05</p>
+					<div class="content_point">项目编码:123456789</div>
+					<div class="content_point_ask">负责人:杨医生</div>
+				</div>
+			</div>
+			<hr class="lmHr" />
+			<ul id="pj">
+				<li>项目评价</li>
+				<li>
+					<div class="liLeft">内容以前了解情况</div>
+					<div class="liRight">
+						<ul class="star_list star" data-type = "ljd">
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+						</ul>
+
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">授课老师满意度</div>
+					<div class="liRight">
+						<ul class="star_list star" data-type = "lsmyd">
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">教学计划满意度</div>
+					<div class="liRight">
+						<ul class="star_list star" data-type = "jhmyd">
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">教材编写满意度</div>
+					<div class="liRight">
+						<ul class="star_list star" data-type = "jcmyd">
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">学习收获满意度</div>
+					<div class="liRight">
+						<ul class="star_list star" data-type = "xxmyd">
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+							<li class="item">
+								<img src="../../img/star0.png" />
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">通过学习收获最大的是</div>
+					<div class="pjPoint" data-type = "shzd">
+						<div>开阔思路</div>
+						<div>提高理论水平</div>
+						<div>提高操作能力</div>
+						<div>提高临床诊治能力</div>
+						<div>提高科研工作能力</div>
+					</div>
+				</li>
+			</ul>
+			<div class="zhpj">
+				<span></span>
+				<span>综合评价</span>
+				<span></span>
+			</div>
+			<div class="liRight zonghe">
+				<ul class="star_list star" data-type = "zhpj">
+					<li class="item">
+						<img src="../../img/star0.png" />
+					</li>
+					<li class="item">
+						<img src="../../img/star0.png" />
+					</li>
+					<li class="item">
+						<img src="../../img/star0.png" />
+					</li>
+					<li class="item">
+						<img src="../../img/star0.png" />
+					</li>
+					<li class="item">
+						<img src="../../img/star0.png" />
+					</li>
+				</ul>
+			</div>
+			<div id="jianyi">
+				<textarea name="" rows="" cols=""></textarea>
+			</div>
+
+			<div id="yuyue">
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block">提交评价</button>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var pingjiaData = {
+				ljd: '',
+				lsmyd: '',
+				jhmyd: '',
+				jcmyd: '',
+				xxmyd: '',
+				zhpj: '',
+				shzd: []
+			}
+			$(".liRight .item").on("click", function() {
+				$(this).siblings().find("img").attr("src", "../../img/star0.png");
+				for(var i = 0; i < $(this).index()+1; i++) {
+					$(this).parent().find("li").eq(i).find("img").attr("src", "../../img/star.png")
+				}
+				pingjiaData[$(this).parent().attr("data-type")] =  $(this).index()+1
+			})
+
+			mui(".pjPoint").on("tap", "div", function() {
+				var _this = this;
+				var index = $(this).index();
+				function addThis(){
+					$(_this).addClass("active");
+					pingjiaData.shzd[index] = $(_this).html();
+				}
+				function removeThis(){
+					 $(_this).removeClass("active") ;
+					 pingjiaData.shzd[index] = '';
+				}
+				$(this).hasClass("active") ?removeThis() : addThis();
+			})
+			mui("#yuyue").on("tap", "button", function() {
+				for(var j=0;j<pingjiaData.shzd.length;j++){
+					if(pingjiaData.shzd[j]===''){
+						pingjiaData.shzd.splice(j,1);
+						j--;
+					}
+				}
+				console.log(JSON.stringify(pingjiaData))
+				plus.nativeUI.toast("评价成功,即将返回我的考试");
+				mui.openWindow({
+					url: "../win/win_blueLeft.html",
+					//					id: dataHref,
+					extras: {
+						showurl: "../frm/mycenter/lm_myks.html",
+						title: "我的考试"
+					}
+				});
+
+			})
+		</script>
+	</body>
+
+</html>

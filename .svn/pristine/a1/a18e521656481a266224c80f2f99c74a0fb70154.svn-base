@@ -1,0 +1,31 @@
+#uInfo{
+	padding: 80px 5% 0;
+}
+.tHeaderImg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	float: left;
+}
+
+.tHeaderImg>img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.tName {
+	font-size: 1.2rem;
+}
+
+.tHeaderDetail {
+	padding-left: 60px;
+	line-height: 2rem;
+}
+#ewm {
+	width: 80%;
+	margin:15px auto;
+}
+#ewm img{
+	width: 100%;
+}

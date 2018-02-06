@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxxDetail.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="xxArea">
+				<p>你好！<span id="uName"></span></p>
+				<p id="edits">
+					分隔符内容
+				</p>
+			</div>
+			<p class="fsr">
+				<span id="orgname">东方医院-内科</span>
+				<span id="time">2017-10-12 12:00</span>
+			</p>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log(JSON.stringify(self.Sid));
+				var param = self.param;
+				if(param.detail) {
+					document.getElementById("detail").innerHTML = param.detail;
+				}
+				if(param.edits) {
+					document.getElementById("edits").innerHTML = param.edits;
+				}
+				if(param.orgname) {
+					document.getElementById("orgname").innerHTML = param.orgname;
+				}
+				if(param.time) {
+					document.getElementById("time").innerHTML = param.time;
+				}
+				document.getElementById("uName").innerHTML = localStorage["username"];
+			})
+		</script>
+	</body>
+
+</html>

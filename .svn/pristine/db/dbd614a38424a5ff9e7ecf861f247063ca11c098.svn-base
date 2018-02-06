@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>完善个人资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myMsg.css" />
+		<style type="text/css">
+			#menu {
+				line-height: 44px;
+				color: white;
+				/*display: none;*/
+			}
+			
+			.liRight span {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<!--	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<a id="menu" class="mui-action-menu mui-pull-right">保存</a>
+			<h1 class="mui-title">完善个人资料</h1>
+		</header>
+
+		<div class="mui-content" id="app">
+			<div class="uInfo">
+				<img src="" id="head-img1" />
+				<span id="upImg">上传头像</span>
+			</div>
+			<div class="zbzl">基本资料</div>
+			<ul class="xg">
+				<!--
+					资料都不可更改，如果后台为空才可更改
+				-->
+				<li data-name="name" data-type="xt">
+					<div class="liLeft">姓名</div>
+					<div class="liRight">
+						<input value="" />
+					</div>
+				</li>
+				<li data-name="gender" data-type="xz" class="xz">
+					<div class="liLeft">性别</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="caridNo" data-type="xt">
+					<div class="liLeft">身份证</div>
+					<div class="liRight">
+						<input value="" />
+					</div>
+				</li>
+				<li data-name="phone" data-type="xt">
+					<div class="liLeft">手机号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="ks" data-type="xt">
+					<div class="liLeft">科室</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zylb" data-type="xz" class="xz">
+					<div class="liLeft">职业类别</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zc" data-type="xz" class="xz">
+					<div class="liLeft">职称</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="dw" data-type="xt" class="xz2">
+					<div class="liLeft">单位</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="xk" data-type="xz" class="xz">
+					<div class="liLeft">学科</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+			</ul>
+
+			<div class="zbzl">详细资料</div>
+			<ul class="xg">
+				<li data-name="cszy" data-type="xz">
+					<!-- class="xz"-->
+					<div class="liLeft">从事专业</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byzy" data-type="xz">
+					<!-- class="xz"-->
+					<div class="liLeft">毕业专业</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="bydx" data-type="tx">
+					<div class="liLeft">毕业院校</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byxl" data-type="xz" class="xz">
+					<!--class="xz"-->
+					<div class="liLeft">毕业学历</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zgxl" data-type="xz" class="xz">
+					<div class="liLeft">最高学历</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zczsNo" data-type="tx">
+					<div class="liLeft">注册证书号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+
+				<li data-name="zgzsNo" data-type="tx">
+					<div class="liLeft">资格证书号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="state" data-type="xz" class="xz">
+					<div class="liLeft">状态</div>
+					<div class="liRight">
+						<input value="" />
+					</div>
+				</li>
+				<li data-name="loginTime" data-type="xt">
+					<div class="liLeft">进入时间</div>
+					<div class="liRight">
+						<input value="" />
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			(function(mui) {
+				mui.init();
+				var isChange = false,
+					mydata, mychangedata = {},
+					Sid = '',
+					mytype;
+				mui.plusReady(function() {
+					Sid = plus.webview.currentWebview().id;
+					//					沉浸式导航
+					if(plus.navigator.isImmersedStatusbar()) {
+						var headerhei = document.getElementById("headertitle");
+						headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+						headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+						//						subpage_style.top = (Math.round(plus.navigator.getStatusbarHeight()) + 44) + 'px';
+					}
+					plus.navigator.setStatusBarBackground("#71c7d5");
+
+					mydata = JSON.parse(localStorage["userdata"]);
+					console.log("完善资料" + mydata.avatar)
+					document.getElementById("head-img1").src = mydata.avatar;
+					//					
+					handle.getMsgType(function(data) {
+						mytype = data;
+						for(var i = 0; i < $("li").length; i++) {
+							var dataName = $("li").eq(i).attr("data-name");
+							//						console.log(dataName);
+							$(".xg li").eq(i).find("input").val(mydata[dataName]);
+							$(".xg li").eq(i).find("input").attr("data-data", mydata[dataName]);
+							if($("li").eq(i).hasClass("xz") && dataName != "gender" && dataName != "zgxl" && dataName != "byxl") {
+								if(dataName == 'name' || dataName == 'caridNo') {
+									$("li").eq(i).find("input").attr("readonly", "true");
+								}
+							}
+						}
+					});
+					plus.nativeUI.closeWaiting();
+
+					//弹出菜单
+					mui(".uInfo").on("tap", "#upImg,img", function(e) {
+						if(mui.os.plus) {
+							var a = [{
+								title: "拍照"
+							}, {
+								title: "从手机相册选择"
+							}];
+							plus.nativeUI.actionSheet({
+								title: "修改头像(上传本人真实头像哦)",
+								cancel: "取消",
+								buttons: a
+							}, function(b) {
+								switch(b.index) {
+									case 0:
+										break;
+									case 1:
+										getImage();
+										break;
+									case 2:
+										galleryImg();
+										break;
+									default:
+										break;
+								}
+							})
+						}
+					});
+
+				});
+
+				//拍照
+				function getImage() {
+					var c = plus.camera.getCamera();
+					c.captureImage(function(e) {
+						//存储到本地
+						plus.io.resolveLocalFileSystemURL(e, function(entry) {
+							cutImage(entry.toLocalURL()); //裁剪图片，传入绝对地址
+						}, function(e) {
+							console.log("读取拍照文件错误：" + e.message);
+						});
+					}, function(s) {
+						console.log("error" + s);
+					}, {
+						filename: "_doc/head.jpg"
+					})
+				}
+
+				//相册
+				function galleryImg() {
+					plus.gallery.pick(function(a) {
+						plus.io.resolveLocalFileSystemURL(a, function(entry) {　　　　　　 //entry为图片原目录（相册）流
+							cutImage(entry.toLocalURL());
+						}, function(e) {
+							console.log("读取图片错误：" + e.message);
+						});
+					}, function(a) {}, {
+						filter: "image"
+					})
+				};
+
+				//裁剪图片
+				function cutImage(path) {
+					mui.openWindow({
+						url: 'cut.html',
+						id: 'cut',
+						extras: {
+							path: path,
+						},
+						show: {
+							aniShow: 'zoom-fade-in',
+							duration: 800
+						},
+						waiting: {
+							autoShow: true
+						}
+					});
+				}
+
+				mui(".xg").on("tap", ".xz2", function() {
+					var dataName = $(this).attr("data-name");
+					console.log(dataName);
+					mui.openWindow({
+						url: 'lm_mymsgss.html',
+						id: 'lm_mymsgss',
+						extras: {
+							dataName: dataName,
+						},
+						show: {
+							aniShow: 'zoom-fade-in',
+							duration: 800
+						},
+						waiting: {
+							autoShow: true
+						}
+					});
+				})
+
+				window.addEventListener('getType', function(event) {
+					var detqil = event.detail;
+					console.log(JSON.stringify(detail))
+				}) //更新用户头像，主要是裁剪页面裁剪完后触发的
+				//添加updateHeadImg自定义事件监听
+				window.addEventListener('updateHeadImg', function(event) {
+					//获得事件参数
+					var my_icon = event.detail.img_path;
+					console.log("data头像" + my_icon);
+					plus.nativeUI.closeWaiting();
+					if(my_icon != "") {
+						handle.upHeaderImg(localStorage["token"], my_icon, function(data) {
+							console.log("我在页面上" + data)
+							if(data.code == 1) {
+								mydata.avatar = data.data.newpath;
+								document.getElementById("head-img1").setAttribute("src", my_icon);
+								//								console.log("mydata" + my_icon);
+								$("#menu").show();
+								isChange = true;
+							}
+						});
+					}
+				});
+
+				mui.back = function() {
+					var btnArray = ['是', '否'];
+					mui.confirm('是否退出应用，资料完善后才能使用app哦', '云医项目App', btnArray, function(e) {
+						if(e.index == 0) {
+							plus.runtime.quit();
+						}
+					})
+				}
+				mui("#headertitle").on("tap", "#menu", function() {
+					saveChange();
+				})
+
+				function saveChange() {
+					console.log($(".xg li").length)
+					for(var i = 0; i < $("li").length; i++) {
+						var dataName = $("li").eq(i).attr("data-name");
+						//						console.log(dataName);
+						var content = $("li").eq(i).find("input").val();
+						var cType = $("li").eq(i).find("input").attr("data-value");
+						if(!isChange) {
+							mui.toast("请上传本人真实头像哦");
+							return;
+						}
+						if(content != "") {
+							mydata[dataName] = content;
+						} else {
+							mui.toast("请填写完善资料哦");
+							return;
+						}
+					}
+					console.log(1 + JSON.stringify(mydata))
+					localStorage["userdata"] = JSON.stringify(mydata);
+					handle.changeUserinfo(mydata, localStorage["token"], function(data) {
+						mui.toast(data.msg);
+						mui.openWindow({
+							url: "../../win/win_home.html",
+							id: "html/win/win_home.htm"
+						})
+					});
+					var wobj = plus.webview.getWebviewById("../frm/mycenter/centerIndex.html");
+					if(wobj) {
+						wobj.reload(); /*将个人中心重新加载*/
+					}
+					//					保存的函数接口操作
+
+					//					plus.nativeUI.toast("保存成功!");
+
+				}
+				mui("body").on("tap", ".xz", function() {
+					var dataName = $(this).attr("data-name");
+					//					if(mydata[dataName] === "") {
+					var _this = $(this).find("input");
+					var picker = new mui.PopPicker();
+					console.log(dataName)
+					if(dataName == 'gender') {
+						picker.setData([{
+							value: '0',
+							text: '男'
+						}, {
+							value: '1',
+							text: '女'
+						}]);
+					} else if(dataName == "zgxl" || dataName == 'byxl') {
+						picker.setData([{
+							value: '0',
+							text: '博士研究生'
+						}, {
+							value: '1',
+							text: '硕士研究生'
+						}, {
+							value: '2',
+							text: '大学本科'
+						}, {
+							value: '3',
+							text: '大学专科'
+						}, {
+							value: '4',
+							text: '中等专科'
+						}, {
+							value: '5',
+							text: '职业高中'
+						}, {
+							value: '6',
+							text: '高中'
+						}, {
+							value: '7',
+							text: '初中'
+						}, {
+							value: '8',
+							text: '小学'
+						}, {
+							value: '9',
+							text: '其他'
+						}]);
+					} else {
+						if(mytype.data[dataName] != undefined) {
+							var str1 = JSON.stringify(mytype.data[dataName]).replace(/name/g, 'text');
+							var str2 = str1.replace(/id/g, 'value');
+							//							console.log(str2)
+							picker.setData(JSON.parse(str2))
+						} else {}
+					}
+					picker.show(function(selectItems) {
+						_this.val(selectItems[0].text); //显示名字
+						_this.attr("data-value", selectItems[0].value); //记录id
+						$("#menu").show();
+					})
+				})
+				//				输入
+				mui("body").on("tap", "input", function() {
+					if($(this).next("span").css("display") != "none") {
+						$("#menu").show();
+					}
+				})
+			})(mui);
+		</script>
+	</body>
+
+</html>

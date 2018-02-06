@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>点播详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_video.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="video">
+				<div id="first">
+					<img src="../../../img/bofang.png" alt="" />
+				</div>
+				<video src="http://brandtrigram.com/Public/uploads/video/2017-10-17/59e583414f087.mp4"></video>
+			</div>
+			<div>
+				<ul id="videoMenu">
+					<li class="choose">介绍</li>
+					<li>目录</li>
+				</ul>
+			</div>
+			<div id="">
+				<ul id="videoDetail">
+					<li>
+						<!--介绍-->
+						<ul class="js">
+							<li>
+								<div id="kcName">课程标题</div>
+								<div class="xxspNum">
+									<span class="mui-icon mui-icon-eye"></span>9999观看
+								</div>
+							</li>
+							<li class="xxspprice">
+								￥ 199
+							</li>
+							<li>
+								<div class="whoCan">适用人群</div>
+								<div class="whoDetail">关于某某科的某某基础理论 要准备靠某某证书的人...</div>
+							</li>
+						</ul>
+						<hr class="lmHr" />
+						<div class="kcdetail">
+							<div class="whoCan">直播介绍：</div>
+							<div>
+								直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播 直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播 直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播
+
+							</div>
+							<div id="detailMore">
+								查看更多
+							</div>
+						</div>
+						<hr class="lmHr" />
+						<ul class="kcTeacher">
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li style="display: none;">
+						<!--目录-->
+						<div class="mui-card videoMenu">
+							<ul class="mui-table-view mui-table-view-chevron">
+								<li class="mui-table-view-cell mui-collapse">
+									<a class="mui-navigate-right" href="javascript:;">S01 基础入门! 护士必须四课程</a>
+									<ul class="mui-table-view mui-table-view-chevron mui-table-view-chevron2">
+										<li class="mui-table-view-cell">
+											<!--购买之后需要把图标隐藏-->
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+									</ul>
+								</li>
+								<li class="mui-table-view-cell mui-collapse">
+									<a class="mui-navigate-right" href="javascript:;">S01 基础入门! 护士必须四课程</a>
+									<ul class="mui-table-view mui-table-view-chevron mui-table-view-chevron2">
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+									</ul>
+								</li>
+								<li class="mui-table-view-cell mui-collapse">
+									<a class="mui-navigate-right" href="javascript:;">S01 基础入门! 护士必须四课程</a>
+									<ul class="mui-table-view mui-table-view-chevron mui-table-view-chevron2">
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+										<li class="mui-table-view-cell">
+											<span class="mui-icon mui-icon-locked lock"></span>
+											<a class="mui-navigate-right" href="javascript:;">1. 【视频讲解】 S01-1四步教你做一个合格护士你值 得拥有（上）</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+
+			<div class="bottomBtn">
+				<button type="button" id="buyBtn" class="mui-btn mui-btn-blue mui-btn-block">立即购买</button>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var price = ""
+			
+			mui.plusReady(function(){
+				var self = plus.webview.currentWebview();
+				mui.toast(self.Sid);
+				price = 100;
+			})
+			
+			
+			
+			$("#video,#first").click(function() {
+				var state = $(this).find("video");
+				var first = $(this).find("#first");
+				if(state.get(0).paused) {
+					state.get(0).play();
+					first.hide();
+				} else {
+					state.get(0).pause();
+					first.show();
+				}
+
+			})
+			//			点击介绍/目录的js
+			$("#videoMenu>li").click(function() {
+				//				选中添加类名
+				$(this).addClass("choose").siblings().removeClass("choose");
+				//				显示对应区域
+				$("#videoDetail>li").hide().eq($(this).index()).show();
+			});
+			//			点击查看更多
+			$("#detailMore").click(function() {
+				$(this).hide();
+				$(".kcdetail").css("height", "auto");
+			})
+//			购买
+			mui(".bottomBtn").on("tap", "#buyBtn", function() {
+				mui.openWindow({
+					url: "../../win/win_whiteLeft.html",
+//					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/lm_buyThis.html",
+						title: "收银台",
+						Num: price //项目的id
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,29 @@
+body{
+	background-color: #fff;
+}
+.mui-content {
+	background-color: #fff;
+	min-height: calc(100vh - 60px);
+}
+
+.mui-bar a,
+.mui-bar h1 {
+	color: white;
+}
+
+.search {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 3%;
+	color: rgb(187, 187, 187);
+}
+
+#xh {
+	padding: 0 3%;
+}
+
+#xh>li {
+	padding: 10px 0;
+	line-height: 1.6rem;
+	border-bottom: 1px solid rgb(187, 187, 187);
+}

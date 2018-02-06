@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>我的资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myMsg.css" />
+	</head>
+
+	<body>
+		<!--
+			
+			修改的提交上传绑定在返回
+		
+		-->
+		<div class="mui-content">
+			<div class="uInfo">
+				<img src="../../../img/about1.png" />
+				<span id="upImg">上传头像</span>
+
+			</div>
+			<div class="zbzl">基本资料</div>
+			<ul class="xg">
+				
+				<!--
+					
+					资料都不可更改，如果后台为空才可更改
+					
+				-->
+				<li>
+					<div class="liLeft">姓名</div>
+					<div class="liRight">
+						<input value="张泽" readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">性别</div>
+					<div class="liRight">
+						<input value="男" readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">身份证</div>
+					<div class="liRight">
+						<input value="511025199202120394"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">手机号</div>
+					<div class="liRight">
+						<input value="13333345656"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">科室</div>
+					<div class="liRight">
+						<input value="内科"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">职业类别</div>
+					<div class="liRight">
+						<input value="护理"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">单位</div>
+					<div class="liRight">
+						<input value="人民医院"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+			</ul>
+
+			<div class="zbzl">详细资料</div>
+			<ul class="xg">
+				<li>
+					<div class="liLeft">从事专业</div>
+					<div class="liRight">
+						<input value="医疗"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">毕业专业</div>
+					<div class="liRight">
+						<input value="护理"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">毕业院校</div>
+					<div class="liRight">
+						<input value="四川大学"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">毕业学历</div>
+					<div class="liRight">
+						<input value="本科"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">最高学历</div>
+					<div class="liRight">
+						<input value="本科"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">状态</div>
+					<div class="liRight">
+						<input value="正常"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+				<li>
+					<div class="liLeft">进入时间</div>
+					<div class="liRight">
+						<input value="2017-09-09"  readonly="readonly"/>
+						<!--<span class="myIcon">&#xe66d;</span>-->
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

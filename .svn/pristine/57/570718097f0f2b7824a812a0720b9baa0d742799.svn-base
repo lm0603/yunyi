@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索页面</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/lm_search.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="search">
+				<div class="seachArea">
+					<span class="mui-icon myIcon" style="color: #26bba5;">&#xe739;</span>
+					<input type="text" placeholder="单位/关键词等" />
+					<span id="goSearch">搜索</span>
+				</div>
+				<div>
+					<ul id="searchMenu">
+						<li onclick="chooseAll()">
+							全部
+						</li>
+						<li onclick="danwei('单位')">
+							单位
+						</li>
+						<li onclick="danwei('学分')">
+							学分类别
+						</li>
+						<li onclick="danwei('学科')">
+							学科
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="">
+				<ul id="">
+					<li class="homeList_detail" onclick="goDetail(1,1)">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+					<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+					<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+					<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+					<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+					<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="mengban">
+				<div class="danwei">
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			function menuLeft(a) {
+				$(a).addClass("active").siblings().removeClass("active");
+			}
+			function menuRight(a) {
+				$(a).addClass("active").siblings().removeClass("active");
+			}
+			mui.init();
+			var state;
+			function danwei(type) {
+				if(state===type && $(".mengban").css("display")==="block"){
+					$(".mengban").hide();
+				}else{
+					$(".mengban").show();
+				}
+//				往选择里面添加选项
+				$(".danwei").html('<div class="dwLeft">' +
+					'<ul>' +
+					'<li class="active" onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'<li onclick="menuLeft(this)">'+type+'</li>' +
+					'</ul>' +
+					'</div>' +
+					'<div class="dwRight">' +
+					'<ul>' +
+					'<li class="active" onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'<li onclick="menuRight(this)">'+type+'第一人民医院</li>' +
+					'</ul>' +
+					'</div>');
+					state = type;
+			}
+			function chooseAll(){
+				$(".mengban").hide();
+			}
+			
+			
+			
+//			点击详情
+			function goDetail(id,type) {
+				mui.openWindow({
+					url: "../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/lm_proDetail.html",
+						title: "预约项目详情",
+						Sid: id,   //项目的id
+						Type: type   //项目是否可以预约，type为1 的可以，0不可以
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

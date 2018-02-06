@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学习卡，展示密码账号</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_xxkDetail.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_xxkDetail2.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="xxk">
+				<img src="../../../img/about1.png" id="img"/>
+			</div>
+			<div id="xxkDetail">
+				<ol>
+					<li><span></span>
+						<div>普通学习卡只能用于第三方学习</div>
+					</li>
+					<li><span></span>
+						<div>每张学习卡只能用一次</div>
+					</li>
+					<li><span></span><div>购买时间: <span id="gmsj">
+						
+					</span></div></li>
+
+					<li><span></span>
+						<div id="detail">购买须知内容购买须知内容购买须知内容购买须知内容 购买须知内容购买须知内容购买须知内容购买须知内容</div>
+					</li>
+					<li><span></span>
+						<div>账号: <span id="cardNum">12345647667879</span></div>
+						<div>密码: <span id="cardPsw">12345647667879</span></div>
+					</li>
+				</ol>
+			</div>
+		</div>
+
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var self = plus.webview.currentWebview();
+				console.log(JSON.stringify(self.Sid));
+				var param = self.param;
+				if(param.detail){
+					document.getElementById("detail").innerHTML = param.detail;
+				}
+				if(param.imgpath){
+					document.getElementById("img").src = param.imgpath;
+				}
+				if(param.gmsj){
+					document.getElementById("gmsj").innerHTML = param.gmsj;
+				}
+				if(param.no){
+					document.getElementById("cardNum").innerHTML = param.no;
+				}
+				if(param.pwd){
+					document.getElementById("cardPsw").innerHTML = param.pwd;
+				}
+			})
+		</script>
+	</body>
+
+</html>

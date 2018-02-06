@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学习卡详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_xxkDetail.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <div id="xxk">
+		    	<img src="../../../img/about1.png" id="img"/>
+		    </div>
+		    <div id="xxkDetail">
+		    	<ol>
+		    		<li><span></span><div>考核学习卡只能用于参加定期考核</div></li>
+		    		<li><span></span><div>学习卡在有效时间范围内，可无效次考核</div></li>
+		    		<li><span></span><div>有效时间: <span id="yyrq">2017-10-10</span>之前</div></li>
+		    		<li><span></span><div id="detail">购买须知内容购买须知内容购买须知内容购买须知内容 购买须知内容购买须知内容购买须知内容购买须知内容</div></li>
+		    		<!--<li><span></span><div>购买须知内容购买须知内容购买须知内容购买须知内容 购买须知内容购买须知内容购买须知内容购买须知内容</div></li>-->
+		    	</ol>
+		    </div>
+		    <div class="bottomBtn">
+		    	<button type="button" id="buyBtn" class="mui-btn mui-btn-blue mui-btn-block">开始考试</button>
+		    </div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js" ></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var self = plus.webview.currentWebview();
+				console.log(JSON.stringify(self.Sid));
+				var param = self.param;
+				if(param.detail){
+					document.getElementById("detail").innerHTML = param.detail;
+				}
+				if(param.imgpath){
+					document.getElementById("img").src = param.imgpath;
+				}
+				if(param.yyrq){
+					document.getElementById("yyrq").innerHTML = param.yyrq;
+				}
+				
+				
+				mui(".bottomBtn").on("tap", "button", function(){
+//					self.Sid   学习卡id
+					mui.openWindow({
+					url: "../../frm/zb/lm_dt.html",
+					id: "lm_dt.html",
+					extras: {
+						Sid: self.Sid,
+						Type:2
+					}
+				});
+				})
+			})
+		</script>
+	</body>
+
+</html>

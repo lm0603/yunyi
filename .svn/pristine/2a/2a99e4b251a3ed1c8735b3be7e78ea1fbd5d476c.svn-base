@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>试题分析</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/zb/lm_dt.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/zb/lm_fx.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="tmfx">
+				<div class="tm">
+
+					<div class="mui-card-title">
+						【1.选择题】下列关于原因和条件的概念，哪项是错误的？
+					</div>
+					<div class="mui-card">
+						<div class="mui-input-group">
+							<div class="mui-input-row mui-radio mui-left">
+								<label>A.有些疾病，只要有原因的作用便可发生</label>
+								<input name="radio1" type="radio" disabled="disabled">
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>B.对一种疾病来说是原因，而对另一种疾病则可为条件</label>
+								<input name="radio1" type="radio" checked disabled="disabled">
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>C.一种疾病引起的某些变化，可成为另一个疾病发生的条件</label>
+								<input name="radio1" type="radio" disabled="disabled">
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>D.因稳态破坏而发生的内环境紊乱、生命活动障碍不可能是引起某些疾病的“危险因素”</label>
+								<input name="radio1" type="radio" disabled="disabled">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="jg">
+					<!--<div><span class="curret">选择正确！</span> 正确答案：A</div>-->
+					<div><span class="wrong">选择错误！</span> 正确答案：A</div>
+				</div>
+				<div class="fx">
+					<div>试题分析</div>
+					<div>关于这道题有很多想说的你就可以说了，如果如果如果如果过内容 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内 内容内</div>
+				</div>
+			</div>
+			<div class="fxBottom">
+				<ul class="fxAll">
+					<li class="timu">
+						<span class="myIcon num">&#xe677;</span><span class="num" id="numnow">1</span>/<span id="all">100</span>
+					</li>
+					<li class="timu">
+						<span class="myIcon cuo">&#xe60d;</span><span class="cuo" id="cuo">10</span>
+					</li>
+					<li class="timu">
+						<span class="myIcon dui">&#xe63c;</span><span class="dui" id="dui">90</span>
+					</li>
+					<li class="pj" id="pj">
+						<span class="myIcon pj">&#xe690;</span><span class="dui">评价</span>
+					</li>
+				</ul>
+				<ul id="tmGroup">
+
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var tmNum = 0,
+				dataList;
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log(1111 + JSON.stringify(self));
+				if(self.Type == 1) {
+					document.getElementById("pj").style.display = "none";
+				}
+				document.getElementById("dui").innerHTML = self.param.data.success;
+				document.getElementById("cuo").innerHTML = self.param.data.err;
+				document.getElementById("all").innerHTML = self.param.data.err + self.param.data.success;
+
+				//				handle.questionfengxi(localStorage["token"],id,type);
+				dataList = handle.questionfengxi(localStorage["token"], self.Sid, self.Type).data.list;
+				chooseTm(0);
+				var html = '';
+				console.log(dataList.length);
+				for(var i = 0; i < dataList.length; i++) {
+					if(i == 0) {
+						console.log(dataList[i].hselect);
+						console.log(dataList[i].trueselect);
+						if(dataList[i].hselect == dataList[i].trueselect) {
+							html += "<li class='active' onclick = 'chooseTm(0)'>1</li>";
+						} else {
+							html += "<li class='wrong active'  onclick = 'chooseTm(0)'>1</li>";
+						}
+					} else {
+						if(dataList[i].hselect == dataList[i].trueselect) {
+							html += "<li onclick = 'chooseTm(" + i + ")'>" + (i + 1) + "</li>";
+						} else {
+							html += "<li class='wrong'  onclick = 'chooseTm(" + i + ")'>" + (i + 1) + "</li>"
+						}
+					}
+				}
+
+				console.log("www" + html)
+				$("#tmGroup").html(html);
+
+				mui(".fxBottom").on("tap", ".timu", function() {
+					if($("#tmGroup").css("display") === "none") {
+						$("#tmGroup").show();
+					} else {
+						$("#tmGroup").hide();
+					}
+
+				})
+
+				//			去评价
+				mui(".fxAll").on("tap", ".pj", function() {
+
+					mui.openWindow({
+						url: "../../win/win_blueCenter.html",
+						//					id: "pingjia",
+						extras: {
+							showurl: "../frm/lm_pingjia.html",
+							title: "评价",
+							Sid: self.Sid,
+							Type: self.Type,
+							param: self.param.prodata
+
+						}
+					});
+
+				});
+				mui("body").on("swipeleft", ".mui-content", function() {
+					//	左划 ,上一题
+					if(tmNum < dataList.length - 1) {
+						tmNum++;
+						chooseTm(tmNum)
+					} else {
+						plus.nativeUI.toast("这是最后一题了");
+					}
+
+				})
+				mui("body").on("swiperight", ".mui-content", function() {
+					//				右划 ,上一题
+					if(tmNum > 0) {
+						tmNum--;
+						chooseTm(tmNum)
+					} else {
+						plus.nativeUI.toast("这是第一题了");
+					}
+				})
+
+				function chooseTm(num) {
+					document.getElementById("numnow").innerHTML = num + 1;
+					$("#tmGroup>li").removeClass("active").eq(num).addClass("active");
+					console.log(JSON.stringify(dataList[num]))
+					var htmls = '<div class="tm">' +
+						'<div class="mui-card-title">' +
+						'【' + (num + 1) + '.选择题】' + dataList[num].name + '' +
+						'</div>' +
+						'<div class="mui-card">' +
+						'<div class="mui-input-group">';
+
+					mui.each(dataList[num].selects, function(index, item) {
+						htmls += '<div class="mui-input-row mui-radio mui-left">' +
+							'<label>' + item.select + '.' + item.content + '</label>';
+						if(item.select == dataList[num].hselect) {
+							htmls += '<input name="radio' + num + '" type="radio" checked disabled="disabled">';
+						} else {
+							htmls += '<input name="radio' + num + '" type="radio" disabled="disabled">';
+						}
+						htmls += '</div>'
+					})
+
+					htmls += '</div>' +
+						'</div>' +
+						'</div>' +
+						'<div class="jg">';
+					if(dataList[num].hselect == dataList[num].trueselect) {
+						htmls += '<div><span class="wrong">选择正确！</span> 正确答案：' + dataList[num].trueselect + '</div>';
+					} else {
+						htmls += '<div><span class="curret">选择错误！</span> 正确答案：' + dataList[num].trueselect + '</div>';
+					}
+					htmls += '</div>' +
+						'<div class="fx">' +
+						'<div>试题分析</div>';
+					if(dataList[num].fengxi == '') {
+						htmls += '<div>暂无相关分析</div></div>';
+					} else {
+						htmls += '<div>' + dataList[num].fengxi + '</div></div>';
+					}
+					tmNum = num;
+					$("#tmfx").html(htmls);
+
+				}
+			})
+		</script>
+	</body>
+
+</html>

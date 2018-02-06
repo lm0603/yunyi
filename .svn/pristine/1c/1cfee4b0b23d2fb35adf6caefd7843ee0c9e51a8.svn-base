@@ -1,0 +1,56 @@
+html,
+.mui-content {
+	background-color: #f7f7f7;
+}
+
+.mui-content {
+	padding: 30px 3%;
+}
+
+#buyType {
+	margin: 30px auto;
+	overflow: hidden;
+}
+
+#buyType>li {
+	width: calc(46% - 2px);
+	height: 50px;
+	padding: 10px 0;
+	float: left;
+	margin-right: 4%;
+	border: 1px solid rgb(153, 148, 148);
+	text-align: center;
+	position: relative;
+}
+
+#buyType>li.chooseType {
+	border: 1px solid rgb(0, 160, 233);
+}
+
+#buyType>li>img.t1 {
+	height: 30px;
+}
+
+#buyType>li>img.t2 {
+	height: 20px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+
+#payPrice {
+	color: rgb(254, 74, 72);
+}
+#buy {
+	margin-top: 80px;
+}
+
+#pay {
+	height: 40px;
+	margin: 20px 0;
+	padding: 0;
+	background-color: rgb(113, 199, 213);
+	border-radius: 5px;
+	border: none;
+}

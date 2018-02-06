@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+.cjHeader {
+	background-color: #FFFFFF;
+	height: 10rem;
+	position: relative;
+}
+.cjHeaderImg {
+	width: 5rem;
+	height: 5rem;
+	float: left;
+	margin: 2.5rem 1.5rem;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.cjHeaderImg img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.cjHeaderMsg {
+	padding-top: 3rem;
+	float: left;
+	width: 9rem;
+	line-height: 2.3rem;
+}
+
+.cjName {
+	font-size: 1.4rem;
+	line-height: 2rem;
+}
+
+.cjdetail {
+	display: inline-block;
+	font-size: 0.8rem;
+	color: #919191;
+}
+.fs{
+	color: rgb(254, 74, 72);
+	line-height: 10rem;
+	font-size: 1.6rem;
+	position: absolute;
+	right: 5%;
+	top: 0;
+}
+
+.myAll{
+	background-color: #FFFFFF;
+	padding: 0 3%;
+}
+.myPoint{
+	height: 3rem;
+	width: 100%;
+	padding: 0.5rem 0;
+	line-height: 2rem;
+	border-bottom: 1px solid #dadada;
+}
+
+.myPointlast{
+	border-bottom: none;
+}
+.myPoint img{
+	height: 2rem;
+	margin-right: 1rem;
+	float: left;
+}
+#tishi{
+	color: #919191;
+	font-size: 0.8rem;
+}
+.myPoint .myImg1{
+	height: 1.4rem;
+	margin-right: 1rem;
+	float: left;
+	margin-top: 0.3rem;
+}
+.myPoint .mui-icon{
+	float: right;
+	line-height: 2rem;
+	color: #dadada;
+}
+
+.myPoint .getJf{
+	color: rgb(254, 74, 72);
+}

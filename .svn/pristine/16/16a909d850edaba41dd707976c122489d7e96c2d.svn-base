@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myMsg.css" />
+		<style type="text/css">
+			#menu {
+				line-height: 44px;
+				color: white;
+				display: none;
+			}
+			
+			.liRight span {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a id="menu" class="mui-action-menu mui-pull-right">保存</a>
+			<h1 class="mui-title">完善个人资料</h1>
+		</header>
+
+		<div class="mui-content" id="app">
+			<div class="uInfo">
+				<img src="../../../img/about1.png" id="head-img1" />
+				<span id="upImg">上传头像</span>
+			</div>
+			<div class="zbzl">基本资料</div>
+			<ul class="xg">
+
+				<!--
+					资料都不可更改，如果后台为空才可更改
+				-->
+				<li data-name="name" data-type="xt">
+					<div class="liLeft">姓名</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="gender" data-type="xz" class="xz">
+					<div class="liLeft">性别</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="caridNo" data-type="xt">
+					<div class="liLeft">身份证</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="phone" data-type="xt">
+					<div class="liLeft">手机号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="ks" data-type="xt">
+					<div class="liLeft">科室</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zylb" data-type="xz" class="xz">
+					<div class="liLeft">职业类别</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zc" data-type="xz" class="xz">
+					<div class="liLeft">职称</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="dw" data-type="xt">
+					<div class="liLeft">单位</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="xk" data-type="xz" class="xz">
+					<div class="liLeft">学科</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+			</ul>
+
+			<div class="zbzl">详细资料</div>
+			<ul class="xg">
+				<li data-name="cszy" data-type="xz" class="xz">
+					<div class="liLeft">从事专业</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byzy" data-type="xz" class="xz">
+					<div class="liLeft">毕业专业</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="bydx" data-type="tx">
+					<div class="liLeft">毕业院校</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byxl" data-type="xz" class="xz">
+					<div class="liLeft">毕业学历</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zgxl" data-type="xz" class="xz">
+					<div class="liLeft">最高学历</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zczsNo" data-type="tx">
+					<div class="liLeft">注册证书号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+
+				<li data-name="zgzsNo" data-type="tx">
+					<div class="liLeft">资格证书号</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="state" data-type="xz" class="xz">
+					<div class="liLeft">状态</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="loginTime" data-type="xt">
+					<div class="liLeft">进入时间</div>
+					<div class="liRight">
+						<input value="" />
+						<span class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript" src="../../../js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			(function(mui) {
+				mui.init();
+				var isChange = false,
+					mydata;
+				mui.plusReady(function() {
+					//					沉浸式导航
+					if(plus.navigator.isImmersedStatusbar()) {
+						var headerhei = document.getElementById("headertitle");
+						console.log("gao" + plus.navigator.getStatusbarHeight())
+						headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+						headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+						//						subpage_style.top = (Math.round(plus.navigator.getStatusbarHeight()) + 44) + 'px';
+					}
+
+					plus.navigator.setStatusBarBackground("#71c7d5");
+					console.log("完善资料" + localStorage["userdata"])
+					mydata = JSON.parse(localStorage["userdata"]);
+					document.getElementById("head-img1").src = mydata.avatar || "../../../img/about1.png";
+					for(var i = 0; i < $("li").length; i++) {
+						var dataName = $("li").eq(i).attr("data-name");
+						//						console.log(dataName);
+						if(mydata[dataName] !== '') {
+							$("li").eq(i).find("input").val(mydata[dataName]).attr("readonly", "true");
+							$("li").eq(i).find("span").hide();
+						} else {
+							$("li").eq(i).find("span").show();
+						}
+
+					}
+					plus.nativeUI.closeWaiting();
+					//弹出菜单
+					mui(".uInfo").on("tap", "#upImg,img", function(e) {
+						if(mui.os.plus) {
+							var a = [{
+								title: "拍照"
+							}, {
+								title: "从手机相册选择"
+							}];
+							plus.nativeUI.actionSheet({
+								title: "修改头像(上传本人真实头像哦)",
+								cancel: "取消",
+								buttons: a
+							}, function(b) {
+								switch(b.index) {
+									case 0:
+										break;
+									case 1:
+										getImage();
+										break;
+									case 2:
+										galleryImg();
+										break;
+									default:
+										break;
+								}
+							})
+						}
+					});
+
+				});
+
+				//拍照
+				function getImage() {
+					var c = plus.camera.getCamera();
+					c.captureImage(function(e) {
+						//存储到本地
+						plus.io.resolveLocalFileSystemURL(e, function(entry) {
+							cutImage(entry.toLocalURL()); //裁剪图片，传入绝对地址
+						}, function(e) {
+							console.log("读取拍照文件错误：" + e.message);
+						});
+					}, function(s) {
+						console.log("error" + s);
+					}, {
+						filename: "_doc/head.jpg"
+					})
+				}
+
+				//相册
+				function galleryImg() {
+					plus.gallery.pick(function(a) {
+						plus.io.resolveLocalFileSystemURL(a, function(entry) {　　　　　　 //entry为图片原目录（相册）流
+							cutImage(entry.toLocalURL());
+						}, function(e) {
+							console.log("读取图片错误：" + e.message);
+						});
+					}, function(a) {}, {
+						filter: "image"
+					})
+				};
+
+				//裁剪图片
+				function cutImage(path) {
+					mui.openWindow({
+						url: 'cut.html',
+						id: 'cut',
+						extras: {
+							path: path,
+						},
+						show: {
+							aniShow: 'zoom-fade-in',
+							duration: 800
+						},
+						waiting: {
+							autoShow: true
+						}
+					});
+				}
+
+				//更新用户头像，主要是裁剪页面裁剪完后触发的
+				//添加updateHeadImg自定义事件监听
+				window.addEventListener('updateHeadImg', function(event) {
+					//获得事件参数
+					var my_icon = event.detail.img_path;
+					console.log("data头像" + my_icon);
+					plus.nativeUI.closeWaiting();
+					if(my_icon != "") {
+						var data = handle.upHeaderImg(localStorage["token"], my_icon);
+						if(data.code == 1) {
+							mydata.avatar = data.data.newpath;
+							document.getElementById("head-img1").setAttribute("src", 'http://' + mydata.avatar);
+							//							console.log("mydata" + mydata.avatar);
+							//							$("#menu").show();
+							isChange = true;
+						}
+
+					}
+				});
+				old_back = mui.back;
+				mui.back = function() {
+					//					页面id===../frm/mycenter/centerIndex.html
+					//						需要页面刷新
+					var xgLength = 0;
+					if($("#menu").css("display") != "none") {
+						plus.nativeUI.confirm("你还没有保存哦，是否需要保存\n保存过后无法再更改", function(e) {
+							if(e.index === 0) {
+								saveChange();
+							} else {
+								plus.webview.close("../../frm/mycenter/lm_myMsg.html");
+							}
+						}, "保存修改", ["保存", "取消"]);
+					} else {
+						old_back();
+					}
+
+				}
+				mui("#headertitle").on("tap", "#menu", function() {
+					saveChange();
+				})
+
+				function saveChange() {
+					var wobj = plus.webview.getWebviewById("../frm/mycenter/centerIndex.html");
+					console.log("我是我的那一页" + JSON.stringify(wobj))
+					if(wobj) {
+						wobj.reload(); /*将个人中心重新加载*/
+					}
+					//					保存的函数接口操作
+					plus.webview.close("../../frm/mycenter/lm_myMsg.html");
+					plus.nativeUI.toast("保存成功!");
+					localStorage["userdata"] = JSON.stringify(mydata);
+				}
+				mui("body").on("tap", ".xz", function() {
+					var dataName = $(this).attr("data-name");
+					if(mydata[dataName] === "") {
+
+						var _this = $(this).find("input");
+						var picker = new mui.PopPicker();
+						//							分类选项
+						switch(dataName) {
+							case 'zc':
+								picker.setData([{
+									value: '职称1',
+									text: '职称1'
+								}, {
+									value: '职称2',
+									text: '职称2'
+								}, {
+									value: '职称3',
+									text: '职称3'
+								}, {
+									value: '职称4',
+									text: '职称4'
+								}, {
+									value: '职称5',
+									text: '职称5'
+								}, {
+									value: '职称6',
+									text: '职称6'
+								}]);
+								break;
+							case 'xk':
+								picker.setData([{
+									value: '学科1',
+									text: '学科1'
+								}, {
+									value: '学科2',
+									text: '学科2'
+								}, {
+									value: '学科3',
+									text: '学科3'
+								}, {
+									value: '学科4',
+									text: '学科4'
+								}, {
+									value: '学科5',
+									text: '学科5'
+								}, {
+									value: '学科6',
+									text: '学科6'
+								}]);
+								break;
+							case 'gender':
+							picker.setData([{
+									value: '男',
+									text: '男'
+								}, {
+									value: '女',
+									text: '女'
+								}]);
+								break;
+							case 'zylb':
+							picker.setData([{
+									value: '职业类别1',
+									text: '职业类别1'
+								}, {
+									value: '职业类别2',
+									text: '职业类别2'
+								}, {
+									value: '职业类别3',
+									text: '职业类别3'
+								}, {
+									value: '职业类别4',
+									text: '职业类别4'
+								}, {
+									value: '职业类别5',
+									text: '职业类别5'
+								}]);
+								break;
+							case 'cszy':
+							picker.setData([{
+									value: '从事专业1',
+									text: '从事专业1'
+								}, {
+									value: '从事专业2',
+									text: '从事专业2'
+								}, {
+									value: '从事专业3',
+									text: '从事专业3'
+								}, {
+									value: '从事专业4',
+									text: '从事专业4'
+								}, {
+									value: '从事专业5',
+									text: '从事专业5'
+								}]);
+								break;
+								case 'byzy':
+							picker.setData([{
+									value: '毕业专业1',
+									text: '毕业专业1'
+								}, {
+									value: '毕业专业2',
+									text: '毕业专业2'
+								}, {
+									value: '毕业专业3',
+									text: '毕业专业3'
+								}, {
+									value: '毕业专业4',
+									text: '毕业专业4'
+								}, {
+									value: '毕业专业5',
+									text: '毕业专业5'
+								}]);
+								break; 
+								case 'byxl':
+							picker.setData([{
+									value: '毕业学历1',
+									text: '毕业学历1'
+								}, {
+									value: '毕业学历2',
+									text: '毕业学历2'
+								}, {
+									value: '毕业学历3',
+									text: '毕业学历3'
+								}, {
+									value: '毕业学历4',
+									text: '毕业学历4'
+								}, {
+									value: '毕业学历5',
+									text: '毕业学历5'
+								}]);
+								break; 
+								case 'zgxl':
+							picker.setData([{
+									value: '博士研究生',
+									text: '博士研究生'
+								}, {
+									value: '硕士研究生',
+									text: '硕士研究生'
+								}, {
+									value: '大学本科',
+									text: '大学本科'
+								}, {
+									value: '大学专科',
+									text: '大学专科'
+								}, {
+									value: '中等专科',
+									text: '中等专科'
+								}, {
+									value: '职业高中',
+									text: '职业高中'
+								}, {
+									value: '高中',
+									text: '高中'
+								}, {
+									value: '初中',
+									text: '初中'
+								}, {
+									value: '小学',
+									text: '小学'
+								}, {
+									value: '其他',
+									text: '其他'
+								}]);
+								break; 
+						}
+
+						picker.show(function(selectItems) {
+							_this.val(selectItems[0].value);
+							$("#menu").show();
+						})
+					}
+
+				})
+				//				输入
+				mui("body").on("tap", "input", function() {
+					if($(this).next("span").css("display") != "none") {
+						$("#menu").show();
+					}
+				})
+			})(mui);
+		</script>
+	</body>
+
+</html>

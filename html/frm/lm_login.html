@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/lm_login.css" />
+	</head>
+
+	<body>
+		<div id="body" class="mui-content">
+			<img src="../../img/logo.png" id="logo" />
+			<div class="login">
+				<div class="loginRow">
+					<img src="../../img/user.png" />
+					<div id="">
+						<input type="text" name="" id="uName" placeholder="请输入您的姓名" value="" />
+					</div>
+				</div>
+				<!--<div class="loginRow">
+					<img src="../../img/id.png" />
+					<div> <input  type="text" maxlength="18" name="" onkeyup="value=value.replace(/[^0-9]/g,'');" onpaste="value=value.replace(/[^0-9]/g,'')" oncontextmenu="value=value.replace(/[^0-9]/g,'')" id="uId" placeholder="请输入您的身份证号码" value="" />
+					</div>
+				</div>-->
+				<div class="loginRow">
+					<img src="../../img/id.png" />
+					<div> 
+						<input type="text" maxlength="18" name="" id="uId" placeholder="请输入您的身份证号码" value="" />
+					</div>
+				</div>
+				<!--<div class="loginRow">
+					<img src="../../img/tel.png" />
+					<div>
+						<input type="tel" maxlength="11"  onkeyup="value=value.replace(/[^0-9]/g,'');" onpaste="value=value.replace(/[^0-9]/g,'')" oncontextmenu="value=value.replace(/[^0-9]/g,'')"  name="" id="uTel" placeholder="请输入您的手机号" value="" />
+					</div>
+				</div>-->
+				<div class="loginRow">
+					<img src="../../img/tel.png" />
+					<div>
+						<input type="tel" maxlength="11" name="" id="uTel" placeholder="请输入您的手机号" value="" />
+					</div>
+				</div>
+				<div class="loginRow">
+					<img src="../../img/code.png" />
+					<div>
+						<input type="text" name="" id="uCode" placeholder="请输入您获得的验证码" value="" />
+					</div><span id="smsCode">点击获取</span>
+				</div>
+
+				<div class="loginRow">
+					<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="login">登录</button>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/server.js"></script>
+		<script type="text/javascript">
+			var regCheck = {
+				checkMobile: function(str) {
+					var re = /^1\d{10}$/;
+					if(!re.test(str)) {
+						plus.nativeUI.toast("请输入正确的电话号码");
+						return false;
+					} else {
+						return true;
+					}
+				},
+				checkId: function(str) {
+					var regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+					if(!regIdNo.test(str)) {
+						plus.nativeUI.toast("请输入正确的身份证号码");
+						return false;
+					} else {
+						return true;
+					}
+				}
+			}
+			mui.init();
+			mui.plusReady(function() {
+				plus.nativeUI.closeWaiting();
+				plus.navigator.setStatusBarBackground("#0D4E71");
+				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+				console.log(document.documentElement.clientHeight);
+				document.getElementById("body").style.height = document.documentElement.clientHeight + "px";
+			})
+
+			var time = 60; //			点击获取验证码
+			mui(".loginRow").on("tap", "#smsCode", function() {
+				var _this = this;
+				var uTel = document.getElementById("uTel").value;
+				if(!regCheck.checkMobile(uTel)) {
+					return;
+				}
+				if(time !== 60) {
+					plus.nativeUI.toast("短信发送中，可能会有一点延迟哦！")
+					return;
+				}
+				handle.getmsg(uTel, function(data) {
+					if(data.code == 1) {
+						var timeGo = setInterval(function() {
+							time--;
+							//					_this.style.color = "#ccc9c8";
+							_this.innerHTML = '<span style="color: #F23030;">' + time + '秒后重试</span>'
+							if(time <= 0) {
+
+								//						_this.style.color = "#FF4662";
+								_this.innerHTML = "重新获取";
+								time = 60;
+								clearInterval(timeGo);
+							}
+						}, 1000);
+					} else {
+						mui.alert("消息发送失败，稍后重试")
+					}
+				});
+			})
+			//			点击登录
+			mui(".loginRow").on("tap", "#login", function() {
+				console.log("denglu ");
+				var uName = document.getElementById("uName").value;
+				if(uName.length <= 0) {
+					plus.nativeUI.toast("姓名不能为空哦");
+					return;
+				}
+				var uTel = document.getElementById("uTel").value;
+				if(uTel.length <= 0) {
+					plus.nativeUI.toast("电话不能为空哦");
+					return;
+				}
+				var uCode = document.getElementById("uCode").value;
+				if(uCode.length <= 0) {
+					plus.nativeUI.toast("验证码不能为空哦");
+					return;
+				}
+				var uId = document.getElementById("uId").value;
+				if(uId.length <= 0) {
+					plus.nativeUI.toast("身份证号码不能为空哦");
+					return;
+				}
+				if(regCheck.checkMobile(uTel)) {
+					if(regCheck.checkId(uId)) {
+						var loginData = {
+							uName: uName,
+							uId: uId,
+							uTel: uTel,
+							uCode: uCode
+						}
+						plus.nativeUI.showWaiting();
+						handle.login(loginData);
+
+					} else {
+						plus.nativeUI.toast("请输入正确的身份证号码哦")
+					}
+				} else {
+					plus.nativeUI.toast("请输入正确的手机号哦")
+				}
+			})
+
+			document.getElementById("uTel").addEventListener('blur', function() {
+				regCheck.checkMobile(this.value);
+			});
+			document.getElementById("uId").addEventListener('blur', function() {
+				regCheck.checkId(this.value);
+			});
+			//			$("input").bind('input propertychange', function() {
+			//				console.log(this.value)
+			//			})
+
+			mui.back = function() {
+				var btnArray = ['是', '否'];
+				mui.confirm('是否退出应用', '云医项目App', btnArray, function(e) {
+					if(e.index == 0) {
+						plus.runtime.quit();
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

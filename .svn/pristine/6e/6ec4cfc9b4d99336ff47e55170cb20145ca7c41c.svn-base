@@ -1,0 +1,61 @@
+#body {
+	background: #ccc url(../img/bg.png);
+	background-size: cover;
+	filter: blur(15);
+}
+
+#logo {
+	width: 30vw;
+	margin: 12vh 35vw;
+}
+
+.login {
+	width: 90%;
+	margin: auto;
+}
+
+.loginRow {
+	overflow: hidden;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.loginRow>img {
+	width: 25px;
+	float: left;
+}
+
+.loginRow>div {
+	width: calc(100% - 30px);
+	height: 30px;
+	margin-left: 30px;
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.loginRow>div>input {
+	height: 100%;
+	margin-left: 5px;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	width: 100%;
+	color: white;
+}
+
+#smsCode {
+	color: white;
+	position: absolute;
+	right: 0;
+	top: 5px;
+	font-size: 12px;
+}
+
+#login {
+	height: 40px;
+	border-radius: 20px;
+	line-height: 40px;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid white;
+	font-size: 1rem;
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学会搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxh.css" />
+		<style type="text/css">
+			.search {
+				padding: 0;
+				height: 80px;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 3;
+				width: 100%;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			.search>div{
+				width: 80%;
+				height: 40px;
+				padding: 0 2%;
+				border: none;
+				margin: 5px 0 0 3%;
+				background-color: #F7F7F7;
+				float: left;
+			}
+			.search input {
+				width: 100%;
+				height: 40px;
+				padding: 0 2%;
+				border: none;
+				background-color: #F7F7F7;
+			}
+			.search span {
+				color: #222222;
+			}
+			
+			body {
+				margin-top: 70px;
+			}
+			
+			#ss {
+				float: right;
+				margin-right: 10px;
+				margin-top: 5px;
+			}
+			
+			#pullrefresh {
+				margin-top: 90px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="mui-content" id="headertitle">
+			<div class="search">
+				<div class="mui-input-row mui-search mui-input-clear">
+					<input type="" name="xhss" id="" value="" placeholder='协会名称/关键词' class="mui-input-clea" />
+				</div>
+				<span id="ss">取消</span>
+				<hr class="lmHr" style="height: 15px;margin-top: calc(2% + 40px);" />
+			</div>
+			<div id="">
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul id="xh">
+							<li>西1南大高新科技学会</li>
+							<li>西2南大高新科技学会</li>
+							<li>西3南大高新科技学会</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementsByClassName("search")[0];
+					console.log("gao" + plus.navigator.getStatusbarHeight())
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+				}
+			})
+			$("input[name=xhss]").on("input propertychange", function() {
+				console.log($(this).val());
+				if($(this).val()) {
+					$("#ss").html("搜索");
+				} else {
+					$("#ss").html("取消");
+				}
+				//				执行搜索的函数
+
+			});
+			mui(".search").on("tap", "#ss", function() {
+				console.log($(this).html())
+				if($(this).html() == "搜索") {
+					//					搜索的函数
+				} else {
+					mui.openWindow({
+						url: "../../win/win_blueCenter.html",
+						//					id: dataHref,
+						extras: {
+							showurl: "../frm/mycenter/lm_myxhAll.html",
+							title: "添加"
+						}
+					});
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

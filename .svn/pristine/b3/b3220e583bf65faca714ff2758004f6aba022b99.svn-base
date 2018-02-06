@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>直播首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proAll.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_storeIndex.css" />
+		<link rel="stylesheet" href="../../../css/navbar.css" />
+		<style type="text/css">
+			
+			.proAll {
+				padding: 0;
+			}
+			
+			#xxsp>li {
+				padding: 0;
+			}
+			
+			.proAll>li,
+			#xxsp>li {
+				padding: 20px 3%;
+				border-bottom: 1px solid #EEEEEE;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">看直播</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" style="width: 100%;">
+						<a class="mui-control-item mui-active" href="#item1mobile" data-wid="lm_frm_zbpage1.html">
+							直播<br />
+							<span></span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile" data-wid="lm_frm_zbpage2.html">
+							预约<br />
+							<span ></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/webviewGroup.js" ></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false
+				}
+			});
+			var stylec = {
+				top: "85px",
+				bottom: "0px" 
+			};
+			mui.plusReady(function() {
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("headertitle");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+				}
+				plus.navigator.setStatusBarBackground("#71c7d5");
+				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+				var group = new webviewGroup("../frm/zb/lm_frm_zbIndex.html", {
+					items: [{
+						id: "lm_frm_zbpage1.html",
+						url: "lm_frm_zbpage1.html",
+						styles: stylec,
+						extras: {}
+					}, {
+						id: "lm_frm_zbpage2.html",
+						url: "lm_frm_zbpage2.html",
+						styles: stylec,
+						extras: {}
+					}],
+					onChange: function(obj) {
+						console.log(obj.index+"")
+						console.log("我是第"+(parseInt(obj.index) + 1)+"个")
+						var c = document.querySelector(".mui-control-item.mui-active");
+						if(c) {
+							c.classList.remove("mui-active");
+						}
+						document.querySelector(".mui-scroll .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")").classList.add("mui-active");
+					}
+				});
+				mui(".mui-scroll").on("tap", ".mui-control-item", function(e) {
+					var wid = this.getAttribute("data-wid");
+					group.switchTab(wid);
+				});
+				plus.nativeUI.closeWaiting();
+			});
+			mui.back = function() {
+				var _self = plus.webview.currentWebview();
+				_self.close("auto");
+			}
+
+			//			点击直播详情
+			function zbDetail(id, num) {
+//				console.log("A"+id +'b'+num)
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/zb/lm_zbDetail.html",
+						title: "点播详情",
+						Sid: id,   //项目的id
+						Num: num
+					}
+				});
+				sessionStorage.setItem("proId",id); 
+				sessionStorage.setItem("proNum",num); 
+				
+			}
+			
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+		</script>
+	</body>
+
+</html>

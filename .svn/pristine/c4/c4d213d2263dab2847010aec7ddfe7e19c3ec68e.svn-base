@@ -1,0 +1,1235 @@
+var U = function() {};
+var serverpath = "http://kgzyz.cn/api/xhg/server.ashx";
+//var serverpath = "http://112.124.64.193:6567/api/xhg/server.ashx";
+
+U.prototype.CallBackHomePage = function(callback) {
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"gethomepage_list"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: true,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log(JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 1) {
+				callback(rdata);
+
+			} else {
+				//如果没有获取到值返回一个空数组;
+				//return null;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+}
+
+//APP登录方法
+U.prototype.login = function(loginid, pwd) {
+//	console.log("进入");
+	var mdata = {
+		com: "login",
+		loginid: loginid,
+		pwd: pwd
+	}
+	console.log(JSON.stringify(mdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'POST', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为100秒；
+		success: function(data) {
+			console.log(JSON.stringify(data));
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			if(data != null && data.com == "login_rp" && data.code == 1) {
+				localStorage["islogin"] = true;
+				localStorage["token"] = data.data.TOKEN;
+				localStorage["userdata"] = JSON.stringify(data.data);
+				var wobj = plus.webview.getWebviewById("../frm/lm_frm_myCenter.html");
+				wobj.reload(true);
+				var mainview = plus.webview.getWebviewById("html/win/win_home.html");
+				if(mainview != null) {
+					plus.webview.show(mainview);
+				} else {
+					//跳转到首页
+					mui.openWindow({
+						url: "../win/win_home.html",
+						id: "win_home.html"
+					});
+				}
+			} else {
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log(type);
+			mui.toast("登录失败！");
+		}
+	});
+}
+//注册
+U.prototype.regoster = function(jsondata) {
+	jsondata["com"] = "register";
+	console.log(JSON.stringify(jsondata));
+	plus.nativeUI.showWaiting();
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(jsondata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			mui.toast(rdata.msg);
+			plus.nativeUI.closeWaiting();
+			if(rdata.code == 1) {
+				//因为注册的志愿者要审核，所以此处不能记录token，登录的时候自动更新token
+				//localStorage["token"]=rdata.data.token;
+				var _nowshow = plus.webview.currentWebview();
+				_nowshow.loadURL("lm_frm_register_success.html");
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log(JSON.stringify(errorThrown));
+			mui.toast("注册失败！");
+			plus.nativeUI.closeWaiting();
+		}
+	});
+}
+//获取首页数据
+U.prototype.GethomePageData = function() {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"gethomepage_list"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log(JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 1) {
+				data = rdata;
+			} else {
+				//如果没有获取到值返回一个空数组;
+				//return null;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+
+U.prototype.GetObjList = function(page, index, isobj, token) {
+	var data;
+	var ajaxdata = {
+		com: "getobjlist",
+		page: page,
+		index: index,
+		isobj: isobj,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			if(rdata.code == 1) {
+				if(rdata.data != null) {
+					data = rdata;
+				}
+			} else {}
+		},
+		error: function(xhr, type, errorThrown) {}
+	});
+	return data;
+}
+//获取项目或者活动的详情
+U.prototype.Getobjde = function(id) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getobjde","id":"' + id + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			if(rdata.code == 1) {
+				data = rdata;
+
+			} else {
+				//如果没有获取到值返回一个空数组;
+				//return null;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+//项目或者活动报名
+U.prototype.AddBmObjORac = function(id, token) {
+	var data;
+	//获取token
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"bmobj_or_ac","id":"' + id + '","token":"' + token + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+
+//获取团队成员列表(未完成)
+U.prototype.getTeamUser = function(teamid, token) {
+	var data;
+	//获取token
+	console.log('{"com":"getmyteam_userlist","temaid":"' + teamid + '","token":"' + token + '"}');
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getmyteam_userlist","temaid":"' + teamid + '","token":"' + token + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+		}
+	});
+	return data;
+}
+//团队报名(未完成)
+U.prototype.AddBmObjOrAcForTeam = function(objid, token, userlist) {
+	var data;
+	var ajaxdata = {
+		com: "bmobj_or_ac_team",
+		id: objid,
+		token: token,
+		userlist: userlist
+	}
+	console.log(JSON.stringify(ajaxdata));
+	//获取token
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+
+//获取消息中心列表
+U.prototype.getMessage_list = function(page, index, type) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getmessagecenter_list","index":"' + index + '","page":"' + page + '","type":"' + type + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.getMessage_de = function(id) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getmessagecenter_de","id":"' + id + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+
+			data = rdata;
+
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_志愿联盟_志愿者列表
+U.prototype.getzylm_vor_list = function(page, index) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getzylm_vor_list","index":"' + index + '","page":"' + page + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	console.log(JSON.stringify(data));
+	return data;
+
+}
+
+//APP_志愿联盟_团队列表
+U.prototype.getzylm_team_list = function(page, index) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getzylm_team_list","index":"' + index + '","page":"' + page + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	console.log(JSON.stringify(data));
+	return data;
+}
+
+//APP_志愿联盟_团队详情
+U.prototype.getzylm_team_de = function(id) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getzylm_team_de","id":"' + id + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_志愿联盟_商家列表
+U.prototype.getzylm_shop_list = function(page, index) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getzylm_shop_list","index":"' + index + '","page":"' + page + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_志愿联盟_商家详情
+U.prototype.getzylm_shop_de = function(id) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getzylm_shop_de","id":"' + id + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+//发现任务列表
+U.prototype.GetTaskList = function(page, index, token, ischengjie) {
+	var data;
+	var ajaxdata = {
+		com: "gettasklist",
+		page: page,
+		index: index,
+		token: token,
+		ischengjie: ischengjie
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			if(rdata.code == 1) {
+				if(rdata.data != null) {
+					data = rdata;
+				}
+			} else {}
+		},
+		error: function(xhr, type, errorThrown) {}
+	});
+	return data;
+}
+
+//获取项目或者活动的详情
+U.prototype.GetTaskde = function(id, token) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"gettaskde","id":"' + id + '","token":"' + token + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("我是获取任务详情:" + JSON.stringify(rdata));
+			if(rdata.code == 1) {
+				data = rdata;
+
+			} else {
+				data = rdata;
+				//如果没有获取到值返回一个空数组;
+				//return null;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+
+//获取项目或者活动的详情
+U.prototype.getTaskCj = function(id, token) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"gettask","id":"' + id + '","token":"' + token + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("data数据为cehngg :" + JSON.stringify(rdata));
+			if(rdata.code == 1) {
+				data = rdata;
+			}
+			//			判断是否是自己发的任务,返回无法领取自己发布的任务!
+			else if(rdata.code == 0) {
+				if(rdata.data != null) {
+					data = rdata;
+				}
+			} else {
+				//如果没有获取到值返回一个空数组;
+				//return null;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+	return data;
+}
+
+//APP_随手拍
+U.prototype.getpat_list = function(page, index, type, token, where) {
+	var data;
+	var ajaxdata = {
+		com: "getphotographlist",
+		index: index,
+		page: page,
+		type: type,
+		token: token,
+		where: where
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_随手拍
+U.prototype.getpat_alllist = function(page, index, type, token, where) {
+	var data;
+	var ajaxdata = {
+		com: "patalllist",
+		index: index,
+		page: page,
+		type: type,
+		token: token,
+		where: where
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_随手拍
+U.prototype.getpat_de = function(id) {
+	var data;
+	var ajaxdata = {
+		com: "getpat_de",
+		id: id
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_随手拍
+U.prototype.AddPat = function(token, data) {
+	var data;
+	var ajaxdata = {
+		com: 'sendphotograph',
+		data: data,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata))
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.My_info = function(token, callback) {
+	var ajaxdata = {
+		com: 'getuser_info',
+		token: token
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//console.log(JSON.stringify(rdata));
+			//			if(rdata.code==1){
+			callback(rdata);
+			//			}
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+}
+
+U.prototype.yanzhengtoken = function(token) {
+	var data;
+	var ajaxdata = {
+		com: 'getuser_info',
+		token: token
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			if(rdata.code == 1) {
+				data = true;
+			} else {
+				data = false;
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.My_joinobj = function(page, index, token, isobj) {
+	var data;
+	var ajaxdata = {
+		com: 'getuser_joinobj',
+		token: token,
+		page: page,
+		index: index,
+		isobj: isobj
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.My_Userobj_de = function(id, token) {
+	var data;
+	var ajaxdata = {
+		com: 'getuseroneob_de',
+		token: token,
+		id: id
+	}
+	console.log("data"+JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.My_UserDoTime_list = function(page, index, token) {
+	var data;
+	var ajaxdata = {
+		com: 'getmydotime_list',
+		token: token,
+		page: page,
+		index: index
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.My_UserJf_list = function(page, index, token) {
+	var data;
+	var ajaxdata = {
+		com: 'getmyjf_list',
+		token: token,
+		page: page,
+		index: index
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+U.prototype.pushmsg_list = function(page, index, token) {
+	var data;
+	var ajaxdata = {
+		com: 'getpushmsg_list',
+		token: token,
+		page: page,
+		index: index
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_随手拍
+U.prototype.AddTask = function(token, title, jf, edits, position, imgs) {
+	var data;
+	var ajaxdata = {
+		com: 'tasksend',
+		title: title,
+		token: token,
+		jf: jf,
+		edits: edits,
+		position: position,
+		imgs: imgs
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_随手拍点赞
+U.prototype.AddClickGood = function(token, id) {
+	var ajaxdata = {
+		com: 'addpat_click',
+		id: id,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: true,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+		},
+		error: function(xhr, type, errorThrown) {
+			//return "操作失败";
+		}
+	});
+}
+
+//APP_随手拍删除
+U.prototype.deletePat = function(token, id) {
+	var data;
+	var ajaxdata = {
+		com: 'deletepat',
+		id: id,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_任务取消
+U.prototype.deleteTask = function(token, id) {
+	var data;
+	var ajaxdata = {
+		com: 'deletetask',
+		id: id,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_获取新闻数据
+U.prototype.getnews_list = function(index, page, type, channel) {
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: '{"com":"getnewlist","index":"' + index + '","page":"' + page + '","type":"' + type + '","channel":"' + channel + '"}',
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_获取新闻数据
+U.prototype.LookTask = function(token, id) {
+	var data;
+	var ajaxdata = {
+		com: "looktask",
+		token: token,
+		id: id
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//APP_获取新闻数据
+U.prototype.OverTask = function(contents, token, id, imgs) {
+	var data;
+	var ajaxdata = {
+		com: "overtask",
+		contents: contents,
+		token: token,
+		id: id,
+		imgs: imgs
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			return "操作失败";
+		}
+	});
+	return data;
+}
+
+//扫码签到
+U.prototype.ewmScan = function(ewmcode, token,position, callback) {
+	var data;
+	var ajaxdata = {
+		com: "scan_qiandao",
+		ewmcode: ewmcode,
+		token: token,
+		position:position
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+	//return data;
+}
+
+//扫码签到
+U.prototype.taskPay = function(token, id, callback) {
+	var data;
+	var ajaxdata = {
+		com: "taskpay",
+		id: id,
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+	//return data;
+}
+
+//扫码签到   --团队信息
+U.prototype.getteaminfo = function(token, callback) {
+	var ajaxdata = {
+		com: "getteaminfo",
+		token: token
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+	//return data;
+}
+
+//扫码签到     --团队活动
+U.prototype.getteamac = function(page, index, teamid) {
+	var data;
+	var ajaxdata = {
+		com: "getteamaction",
+		teamid: teamid,
+		page: page,
+		index: index
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			data = rdata;
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+	return data;
+}
+
+//首页的主搜索按钮
+U.prototype.searchs = function(keywords, type, callback) {
+	var ajaxdata = {
+		com: "search_words",
+		words: keywords,
+		type: type
+	}
+	console.log(JSON.stringify(ajaxdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: true,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			console.log(JSON.stringify(rdata));
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+}
+
+//获取志愿地图信息
+U.prototype.getMap = function(callback) {
+	var ajaxdata = {
+		com: "obj_map"
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+}
+//申请加入团队
+U.prototype.joinTeam = function(id, token, callback) {
+	var ajaxdata = {
+		'com': 'jointeam',
+		'tid': id,
+		'token': token
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+}
+
+//消息读取
+U.prototype.msgRead = function(id,token,callback) {
+	var ajaxdata={
+		'com':'msgisread',
+		'mid':id,
+		'token':token
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+}
+
+
+
+
+
+
+//验证用户名可用
+U.prototype.checkName = function(vlaue,callback) {
+	var ajaxdata = {
+		"com": "isnameagein",
+		"name": vlaue
+	}
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(ajaxdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			callback(rdata);
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//return "操作失败";
+		}
+	});
+}
+
+var xhg = new U();

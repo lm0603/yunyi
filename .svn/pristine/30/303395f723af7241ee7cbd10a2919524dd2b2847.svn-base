@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<style type="text/css">
+			.ok {
+				font-size: 96px;
+				color: #0AC380;
+			}
+			
+			.ts {
+				width: 60%;
+				margin: 40px auto;
+			}
+			
+			#buy {
+				margin-top: 80px;
+			}
+			
+			#pay {
+				width: 90%;
+				height: 40px;
+				margin: 20px auto;
+				padding: 0;
+				background-color: rgb(113, 199, 213);
+				border-radius: 5px;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div style="text-align: center;margin-top: 100px;">
+				<span class="myIcon ok">&#xe651;</span>
+			</div>
+			<div class="ts">
+				你已支付成功，请上传照片（仅限使用个人真实照片） 上传成功以后立即观看
+			</div>
+			<div id="buy">
+				<button type="button" id="pay" class="mui-btn mui-btn-blue mui-btn-block">上传照片</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui("#buy").on("tap", "#pay", function() {
+				// 弹出系统选择按钮框
+				plus.nativeUI.actionSheet({
+					title: "上传照片(注：仅限上传本人真实照片)",
+					cancel: "取消",
+					buttons: [{
+						title: "拍照"
+					}, {
+						title: "从相册中选取"
+					}]
+				}, function(e) {
+					console.log("User pressed: " + e.index);
+				});
+			})
+			
+		</script>
+	</body>
+
+</html>

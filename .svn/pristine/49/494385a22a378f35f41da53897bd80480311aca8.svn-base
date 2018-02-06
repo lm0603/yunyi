@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学习卡详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_xxkDetail.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="xxk">
+				<img src="../../../img/about1.png" />
+			</div>
+			<div id="xxkDetail">
+				<ol>
+					<li><span></span>
+						<div>考核学习卡只能用于参加定期考核</div>
+					</li>
+					<li><span></span>
+						<div>每张学习卡只能用一次</div>
+					</li>
+					<li><span></span>
+						<div>成功购买后，费用不产生退还</div>
+					</li>
+					<li><span></span>
+						<div>购买须知内容购买须知内容购买须知内容购买须知内容 购买须知内容购买须知内容购买须知内容购买须知内容</div>
+					</li>
+					<li><span></span>
+						<div>购买须知内容购买须知内容购买须知内容购买须知内容 购买须知内容购买须知内容购买须知内容购买须知内容</div>
+					</li>
+				</ol>
+			</div>
+			<div class="bottomBtn">
+				<button type="button" id="buyBtn" class="mui-btn mui-btn-blue mui-btn-block">立即购买</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log(self.Sid);
+			});
+//			购买
+			mui(".bottomBtn").on("tap", "#buyBtn", function() {
+				mui.openWindow({
+					url: "../../win/win_whiteLeft.html",
+//					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/lm_buyThis.html",
+						title: "收银台",
+						Num: 100 //项目的id
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

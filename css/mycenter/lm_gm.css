@@ -1,0 +1,85 @@
+.mui-title>input {
+	width: 70%;
+	margin: 0;
+	padding: 0 2%;
+	height: 30px;
+	border-radius: 15px;
+	font-size: 0.8rem;
+}
+
+header.mui-bar {
+	box-shadow: none;
+}
+
+header.mui-bar>a.mui-action-back {
+	color: white;
+	padding-top: 20px;
+}
+
+.mui-bar .mui-title {
+	margin-top: 10px;
+}
+
+#menu {
+	overflow: hidden;
+    margin-top: 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#menu>li {
+	width: 50%;
+	float: left;
+	height: 50px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	background-color: #71C7D5;
+	position: relative;
+}
+
+#menu>li.menuActive {
+	color: rgb(0, 176, 150);
+}
+
+#menu>li>span {
+	width: 20%;
+	height: 2px;
+	background-color: rgb(0, 176, 150);
+	display: inline-block;
+	position: absolute;
+	bottom: 4px;
+	left: 40%;
+}
+header.mui-bar {
+	height: 44px;
+}
+
+header.mui-bar .mui-title {
+	margin: 0;
+}
+
+#menu {
+	margin: 0;
+}
+
+.proAll {
+	padding: 10px 0;
+	/*margin-top: 50px;*/
+	background-color: #f7f7f7;
+}
+.homeList_detail_content h3{
+	white-space: normal;
+   word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+    overflow: hidden; 
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+}
+.content_point_ask{
+	margin: 0.46rem 0 0.55rem;
+}

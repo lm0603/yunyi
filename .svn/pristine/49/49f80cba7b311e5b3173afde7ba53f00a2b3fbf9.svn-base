@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学会搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxh.css" />
+		<style type="text/css">
+			.search {
+				padding: 0;
+				height: 70px;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background-color: #fff;
+			}
+			
+			.search>input {
+				width: 80%;
+				height: 40px;
+				padding: 0 2%;
+				border: none;
+				margin: 5px 0 0 3%;
+				background-color: #F7F7F7;
+			}
+			
+			.search>span {
+				color: #222222;
+			}
+			
+			body {
+				margin-top: 70px;
+			}
+			
+			#ss {
+				float: right;
+				margin-right: 10px;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="search">
+				<input type="" name="xhss" id="" value="" placeholder='协会名称/关键词' />
+				<span id="ss">取消</span>
+				<hr class="lmHr" style="height: 15px;margin-top: 5px;" />
+			</div>
+
+			<ul id="xh">
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会西南大高新科技学会西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会西南大高新科技学会西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会西南大高新科技学会西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会西南大高新科技学会西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			$("input[name=xhss]").on("input propertychange", function() {
+				console.log($(this).val());
+//				执行搜索的函数
+
+			});
+			mui(".search").on("tap", "#ss", function() {
+
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					//					id: dataHref,
+					extras: {
+						showurl: "../frm/mycenter/lm_myxhAll.html",
+						title: "添加"
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

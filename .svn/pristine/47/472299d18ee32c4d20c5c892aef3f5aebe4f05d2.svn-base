@@ -1,0 +1,378 @@
+var U = function() {};
+var serverpath = "http://192.168.1.15:888/api/xapi/server.ashx ";
+
+//APP登录方法
+U.prototype.login = function(obj) {
+	var mdata = {
+		com: "login",
+		phone: obj.uTel,
+		name: obj.uName,
+		idcard: obj.uId,
+		code: obj.uCode
+	}
+	console.log(JSON.stringify(mdata));
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'POST', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为100秒；
+		success: function(data) {
+			console.log("请求回来的data+++" + JSON.stringify(data));
+			//服务器返回响应，根据响应结果，分析是否登录成功； ------后面的还没做
+			if(data != null && data.com == "login_rp" && data.code == 1) {
+				console.log(data.data.token)
+				localStorage["islogin"] = true;
+				localStorage["token"] = data.data.token;
+				var wobj = plus.webview.getWebviewById("../frm/mycenter/centerIndex.html");
+				console.log("我是我的那一页" + JSON.stringify(wobj))
+				if(wobj){
+				wobj.reload(); /*将个人中心重新加载*/
+					
+				}
+				var mainview = plus.webview.getWebviewById("html/win/win_home.html");
+				if(mainview != null) {
+					plus.webview.show(mainview);
+				} else {
+					//跳转到首页
+					mui.openWindow({
+						url: "../win/win_home.html",
+						id: "html/win/win_home.html"
+					});
+				}
+			} else {
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			console.log(type);
+			mui.toast("登录失败！");
+		}
+	});
+}
+//APP退出登录方法
+U.prototype.outLogin = function() {
+	localStorage["islogin"] = false;
+	localStorage["token"] = null;
+	
+}
+//首页数据
+U.prototype.getHome = function(token, callback) {
+	var mdata = {
+		com: "gethomepage",
+		token: token
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log(JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				callback(rdata)
+			} else {
+				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+}
+
+//获取个人信息
+U.prototype.getUserinfo = function(token, callback) {
+	var mdata = {
+		com: "getuserinfo",
+		token: token
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log(JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				
+				rdata.data.zczsNo="";
+				
+				localStorage["userdata"] = JSON.stringify(rdata.data);
+				callback(rdata);
+
+			} else {
+				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+	});
+}
+
+//获取商城信息
+U.prototype.getGoods = function(page, index, type, callback) {
+	var mdata = {
+		com: "getgoods",
+		type: type,
+		index: index,
+		page: page
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log(JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 1) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+
+//获取学习卡详细信息
+U.prototype.getxxkDetail = function(id) {
+	var mdata = {
+		com: "getgoods_card_de",
+		id: id
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("学习卡详细信息" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 1) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+//学习卡购买
+U.prototype.payxxk = function(id, token) {
+	var mdata = {
+		com: "paygoodscard",
+		id: id,
+		token: token
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("学习卡详细信息" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+
+//已购学习卡的函数
+U.prototype.buyxxk = function(page, index, token) {
+	var mdata = {
+		com: "mypaycard",
+		page: page,
+		index: index,
+		token: token
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("学习卡详细信息" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+//获取用户二维码
+U.prototype.getEwm = function(token) {
+	var mdata = {
+		com: "getewm",
+		token: token
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("二维码" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+//上传头像
+U.prototype.upHeaderImg = function(token, data) {
+	var mdata = {
+		com: "bmobj_or_ac_team",
+		token: token,
+		imgbase: data
+	};
+	var data;
+	console.log("上传头像的data" + JSON.stringify(mdata))
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("我是上传头像" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 1) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+
+
+//我的考试
+U.prototype.myks = function(token,type,index,page) {
+	var mdata = {
+		com: "mykaoshi",
+		token: token,
+		type:type,
+		index:index,
+		page:page
+	};
+	var data;
+	mui.ajax({
+		url: serverpath,
+		data: JSON.stringify(mdata),
+		dataType: 'json', //服务器返回json格式数据
+		type: 'post', //HTTP请求类型
+		async: false,
+		timeout: 10000, //超时时间设置为10秒；
+		success: function(rdata) {
+			//			//服务器返回响应，根据响应结果，分析是否登录成功；
+			console.log("我的考试" + JSON.stringify(rdata));
+			if(rdata != null && rdata.code == 101) {
+				data = rdata;
+			} else {
+				//				//如果没有获取到值返回一个空数组;
+				mui.toast(data.msg);
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			//异常处理；
+			//console.log("获取首页数据失败!");
+			//return null;
+		}
+		//		return data;
+	});
+	return data;
+}
+
+
+
+var handle = new U();

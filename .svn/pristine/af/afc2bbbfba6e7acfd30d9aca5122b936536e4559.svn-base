@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>直播首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proAll.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_storeIndex.css" />
+		<style type="text/css">
+			
+			.proAll {
+				padding: 0;
+			}
+			
+			#xxsp>li {
+				padding: 0;
+			}
+			
+			.proAll>li,
+			#xxsp>li {
+				padding: 20px 3%;
+				border-bottom: 1px solid #EEEEEE;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">看直播</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="menu">
+				<li class="menuActive">
+					直播<br />
+					<span></span>
+				</li>
+				<li>
+					预约<br />
+					<span style="display: none;"></span>
+				</li>
+			</ul>
+			<div>
+				<!--直播-->
+				<ul class="proAll" id="xxk" style="display: ;">
+					<li onclick="zbDetail(2,102)">
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span><span>9999</span>观看
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!--预约-->
+				<ul class="proAll" id="xxsp" style="display: none;">
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="myIcon">&#xe612;</span><span class="yyTime">2017-10-19</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			//			点击直播详情
+			function zbDetail(id, num) {
+				console.log("A"+id +'b'+num)
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/zb/lm_zbDetail.html",
+						title: "点播详情",
+						Sid: id,   //项目的id
+						Num: num
+					}
+				});
+			}
+			
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+		</script>
+	</body>
+
+</html>

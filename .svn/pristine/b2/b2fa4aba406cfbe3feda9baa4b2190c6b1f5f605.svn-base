@@ -1,0 +1,38 @@
+放大镜的代码&#xe610;要替换一下
+
+
+
+
+	
+
+
+
+我的资料：
+	只写了静态页面，后台获取数据为空的话，还要绑定修改事件
+	
+添加学会：
+	添加学会，还有个确认参加的提示框
+	mui.confirm(msg, function(e) {
+					console.log(e.value)
+				}, "加入学会", ["确定", "再想想"]);
+
+打开项目详情
+	
+//			点击详情
+			function goDetail(id,type) {
+				mui.openWindow({
+					url: "../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/lm_proDetail.html",
+						title: "预约项目详情",
+						Sid: id,   
+						Type: type
+					}
+				});
+			}
+			
+
+
+添加学会
+	添加协会的函数

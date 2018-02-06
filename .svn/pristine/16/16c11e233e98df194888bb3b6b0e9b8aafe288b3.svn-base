@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的学会
+		</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxh.css" />
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a id="menu" class="mui-action-menu mui-icon mui-icon-plus mui-pull-right"></a>
+			<h1 class="mui-title">我的学会</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="xh">
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会西南大高新科技学会西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+				<li>西南大高新科技学会</li>
+			</ul>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui("header").on("tap", "#menu", function() {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					//					id: dataHref,
+					extras: {
+						showurl: "../frm/mycenter/lm_myxhAll.html",
+						title: "添加"
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

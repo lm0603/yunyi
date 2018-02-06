@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的二维码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../../css/common.css" />
+	<link rel="stylesheet" href="../../../css/mycenter/lm_ewm.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="uInfo">
+				<div class="tHeaderImg">
+					<img src="../../../img/about1.png" />
+				</div>
+				<div class="tHeaderDetail">
+					<div class="tName" id="tName">秋叶</div>
+					<div class="tZhiwu">
+						<span id="keshi">外科 </span>
+						<span id="zw">护士</span></div>
+				</div>
+				<div id="ewm">
+					<img src="../../../img/wdewm.png" id="ewmImg"/>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js" ></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var data=handle.getEwm(localStorage["token"]);
+				var userdata =JSON.parse(localStorage["userdata"]);
+				
+				document.getElementById("tName").innerHTML= userdata.name;
+				document.getElementById("keshi").innerHTML= userdata.ks;  //应该是科室
+				document.getElementById("zw").innerHTML= userdata.zc;  //应该是职务
+				document.getElementById("ewmImg").setAttribute("src",data.path);
+			})
+		</script>
+	</body>
+</html>

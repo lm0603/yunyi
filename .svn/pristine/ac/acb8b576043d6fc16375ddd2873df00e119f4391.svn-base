@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学分查询</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_xfcx.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="top">
+				<div class="xfTit">
+					总学时:
+					<div class="xfNum">12</div>
+				</div>
+
+				<div class="xfTit">
+					总学分:
+					<div class="xfNum">90.9</div>
+				</div>
+			</div>
+			<div class="myAll">
+				<div class="myPoint" id="">
+					<span>
+						Ⅰ类学分:
+					</span>
+					<span class="num">49.9</span>
+				</div>
+				<div class="myPoint" id="">
+					<span>
+						Ⅱ类学分:
+					</span>
+					<span class="num">49.9</span>
+				</div>
+				<div class="myPoint" id="">
+					<span>
+						达标状态:
+					</span>
+					<span class="db num">已达标</span>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

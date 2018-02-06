@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商城首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proAll.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_storeIndex.css" />
+		<style type="text/css">
+			.proAll,.proAll1{
+				margin-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+			<!--视频-->
+				<ul class="proAll proAll1" id="xxsp" style="">
+					<li onclick="zbDetail(1)">
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				},
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					},
+					down: {
+						contentrefresh: '正在加载...',
+						callback: pulldownRefresh,
+						auto: true
+					}
+				}
+			});
+			/**
+			 * 上拉和下拉加载具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(true); //参数为true代表没有更多数据了。
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+					
+					console.log("下拉")
+					
+				}, 1000);
+			}
+
+			function pullupRefresh() {
+
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+					
+					console.log("上拉")
+				
+				}, 1000);
+			}
+
+			/**
+			 * 上拉和下拉加载具体业务实现  end
+			 */
+			mui('#pullrefresh').on("tap", "li", function() {
+				this.click();
+			});
+
+			//			点击学习卡详情
+			function xxkDetail(id,name) {
+				mui.openWindow({
+					url: "../../win/win_whiteLeft.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_xxkDetail.html",
+						title: name,
+						Sid: id   //项目的id
+					}
+				});
+			}
+			
+			//			点击直播详情
+			function zbDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_video.html",
+						title: "点播详情",
+						Sid: id   //项目的id
+					}
+				});
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商城首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proAll.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_storeIndex.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">购知识</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="menu">
+				<li class="menuActive">
+					学习卡<br />
+					<span></span>
+				</li>
+				<li>
+					视频<br />
+					<span style="display: none;"></span>
+				</li>
+			</ul>
+			<div>
+				<!--学习卡-->
+				<ul class="proAll" id="xxk">
+					<li onclick="xxkDetail(1,'普通学习卡')">
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h3">普通学习卡</div>
+						<div class="h4">
+							可用于第三方平台<span class="xxkprice">￥  99</span>
+						</div>
+					</li>
+				</ul>
+				<!--视频-->
+				<ul class="proAll proAll1" id="xxsp" style="display: none;">
+					<li onclick="zbDetail(1)">
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="xxk">
+							<img src="../../../img/about1.png" />
+						</div>
+						<div class="h32">课程标题：我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题我是课程标题</div>
+						<div class="h4">
+							<span class="xxspprice">￥  199</span>
+							<div class="xxspNum">
+								<span class="mui-icon mui-icon-eye"></span>9999观看
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			});
+			xxkDetail
+			
+			//			点击学习卡详情
+			function xxkDetail(id,name) {
+				mui.openWindow({
+					url: "../../win/win_whiteLeft.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_xxkDetail.html",
+						title: name,
+						Sid: id   //项目的id
+					}
+				});
+			}
+			
+			//			点击直播详情
+			function zbDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_video.html",
+						title: "点播详情",
+						Sid: id   //项目的id
+					}
+				});
+			}
+			
+		</script>
+	</body>
+
+</html>

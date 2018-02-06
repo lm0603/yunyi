@@ -1,0 +1,27 @@
+.mui-scroll {
+	background-color: #71C7D5;
+}
+
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+	margin: 0;
+	width: 50%;
+	background-color: #71C7D5;
+	color: white;
+	line-height: 20px;
+}
+
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+	background-color: #71C7D5;
+	color: rgb(0, 176, 150);
+}
+
+.mui-control-item span {
+	display: inline-block;
+	height: 2px;
+	width: 30%;
+	background-color: #71C7D5;
+}
+
+.mui-control-item.mui-active span {
+	background-color: rgb(0, 176, 150);
+}

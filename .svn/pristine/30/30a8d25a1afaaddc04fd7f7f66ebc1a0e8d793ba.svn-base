@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myMsg.css" />
+		<style type="text/css">
+			#menu {
+				line-height: 44px;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a id="menu" class="mui-action-menu mui-pull-right">保存</a>
+			<h1 class="mui-title">完善个人资料</h1>
+		</header>
+
+		<div class="mui-content" id="app">
+			<div class="uInfo">
+				<img :src="imgPath" id="head-img1" />
+				<span id="upImg">上传头像</span>
+			</div>
+			<div class="zbzl">基本资料</div>
+			<ul class="xg">
+
+				<!--
+					资料都不可更改，如果后台为空才可更改
+				-->
+				<li data-name="name" data-type="xt">
+					<div class="liLeft">姓名</div>
+					<div class="liRight">
+						<input type="text" value="" :readonly="mydata.name===''?false:true" v-model="newData.name" />
+						<span v-if="mydata.name===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="gender" data-type="xz" class="xz">
+					<div class="liLeft">性别</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.gender===''?false:true" id="sex" v-model="newData.gender" />
+						<span v-if="mydata.gender===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="caridNo" data-type="xt">
+					<div class="liLeft">身份证</div>
+					<div class="liRight">
+						<input type="text"  value="511025199202120394" :readonly="mydata.caridNo===''?false:true" v-model="newData.caridNo" />
+						<span v-if="mydata.caridNo===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="phone" data-type="xt">
+					<div class="liLeft">手机号</div>
+					<div class="liRight">
+						<input type="text"  value="13333345656" :readonly="mydata.phone===''?false:true" v-model="newData.phone" />
+						<span v-if="mydata.phone===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="ks" data-type="xt">
+					<div class="liLeft">科室</div>
+					<div class="liRight">
+						<input type="text"  value="内科" :readonly="mydata.ks===''?false:true" v-model="newData.ks" />
+						<span v-if="mydata.ks===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zylb" data-type="xz" class="xz">
+					<div class="liLeft">职业类别</div>
+					<div class="liRight">
+						<input type="text"  value="护理" :readonly="mydata.zylb===''?false:true" v-model="newData.zylb" />
+						<span v-if="mydata.zylb===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zc" data-type="xz" class="xz">
+					<div class="liLeft">职称</div>
+					<div class="liRight">
+						<input type="text"  value="脑外科医师" :readonly="mydata.zc===''?false:true" v-model="newData.zc" />
+						<span v-if="mydata.zc===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="dw" data-type="xt">
+					<div class="liLeft">单位</div>
+					<div class="liRight">
+						<input type="text"  value="人民医院" :readonly="mydata.dw===''?false:true" v-model="newData.dw" />
+						<span v-if="mydata.dw===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="xk" data-type="xz" class="xz">
+					<div class="liLeft">学科</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.xk===''?false:true" v-model="newData.xk" />
+						<span v-if="mydata.xk===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+			</ul>
+
+			<div class="zbzl">详细资料</div>
+			<ul class="xg">
+				<li data-name="cszy" data-type="xz" class="xz">
+					<div class="liLeft">从事专业</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.cszy===''?false:true" v-model="newData.cszy" />
+						<span v-if="mydata.cszy===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byzy" data-type="xz" class="xz">
+					<div class="liLeft">毕业专业</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.byzy===''?false:true" v-model="newData.byzy" />
+						<span v-if="mydata.byzy===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="bydx" data-type="tx">
+					<div class="liLeft">毕业院校</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.bydx===''?false:true" v-model="newData.bydx" />
+						<span v-if="mydata.bydx===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="byxl" data-type="xz" class="xz">
+					<div class="liLeft">毕业学历</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.byxl===''?false:true" v-model="newData.byxl" />
+						<span v-if="mydata.byxl===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zgxl" data-type="xz" class="xz">
+					<div class="liLeft">最高学历</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.zgxl===''?false:true" v-model="newData.zgxl" />
+						<span v-if="mydata.zgxl===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="zczsNo" data-type="tx">
+					<div class="liLeft">注册证书号</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.zczsNo===''?false:true" v-model="newData.zczsNo" />
+						<span v-if="mydata.zczsNo===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+
+				<li data-name="zgzsNo" data-type="tx">
+					<div class="liLeft">资格证书号</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.zgzsNo===''?false:true" v-model="newData.zgzsNo" />
+						<span v-if="mydata.zgzsNo===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="state" data-type="xz" class="xz">
+					<div class="liLeft">状态</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.state===''?false:true" v-model="newData.state" />
+						<span v-if="mydata.state===''&&mydata.loginTime!==null" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+				<li data-name="loginTime" data-type="xt">
+					<div class="liLeft">进入时间</div>
+					<div class="liRight">
+						<input type="text"  value="" :readonly="mydata.loginTime===''?false:true" v-model="newData.loginTime" />
+						<span v-if="mydata.loginTime===''" class="myIcon">&#xe66d;</span>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript" src="../../../js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			(function(mui) {
+				mui.init();
+				var isChange = "";
+				mui.plusReady(function() {
+					plus.navigator.setStatusBarBackground("#71c7d5");
+					console.log("111111" + localStorage["userdata"]);
+					app.mydata = JSON.parse(localStorage["userdata"]);
+					app.newData = clone3(app.mydata);
+					console.log("222222" + localStorage["userdata"]);
+					plus.nativeUI.closeWaiting();
+					isChange = $("li").find(".myIcon").length;
+					//					var self = plus.webview.currentWebview();
+					//					console.log(self.id);
+					//弹出菜单
+					mui(".uInfo").on("tap", "#upImg,img", function(e) {
+						if(mui.os.plus) {
+							var a = [{
+								title: "拍照"
+							}, {
+								title: "从手机相册选择"
+							}];
+							plus.nativeUI.actionSheet({
+								title: "修改头像(上传本人真实头像哦)",
+								cancel: "取消",
+								buttons: a
+							}, function(b) {
+								switch(b.index) {
+									case 0:
+										break;
+									case 1:
+										getImage();
+										break;
+									case 2:
+										galleryImg();
+										break;
+									default:
+										break;
+								}
+							})
+						}
+					});
+				});
+
+				//拍照
+				function getImage() {
+					var c = plus.camera.getCamera();
+					c.captureImage(function(e) {
+						//存储到本地
+						plus.io.resolveLocalFileSystemURL(e, function(entry) {
+							cutImage(entry.toLocalURL()); //裁剪图片，传入绝对地址
+						}, function(e) {
+							console.log("读取拍照文件错误：" + e.message);
+						});
+					}, function(s) {
+						console.log("error" + s);
+					}, {
+						filename: "_doc/head.jpg"
+					})
+				}
+
+				//相册
+				function galleryImg() {
+					plus.gallery.pick(function(a) {
+						plus.io.resolveLocalFileSystemURL(a, function(entry) {　　　　　　 //entry为图片原目录（相册）流
+							cutImage(entry.toLocalURL());
+						}, function(e) {
+							console.log("读取图片错误：" + e.message);
+						});
+					}, function(a) {}, {
+						filter: "image"
+					})
+				};
+
+				//裁剪图片
+				function cutImage(path) {
+					mui.openWindow({
+						url: 'cut.html',
+						id: 'cut',
+						extras: {
+							path: path,
+						},
+						show: {
+							aniShow: 'zoom-fade-in',
+							duration: 800
+						},
+						waiting: {
+							autoShow: true
+						}
+					});
+				}
+
+				//更新用户头像，主要是裁剪页面裁剪完后触发的
+				//添加updateHeadImg自定义事件监听
+				window.addEventListener('updateHeadImg', function(event) {
+					//获得事件参数
+					var my_icon = event.detail.img_path;
+					console.log("data头像" + my_icon)
+					if(my_icon != "") {
+						//						document.getElementById("head-img1").src = my_icon;
+						
+						var data = handle.upHeaderImg(localStorage["token"], my_icon);
+						app.imgPath = data.data.newpath;;
+					}
+				});
+				mui.back = function() {
+					//					页面id===../frm/mycenter/centerIndex.html
+					//						需要页面刷新
+					for(var i = 0; i < $(".myIcon").length; i++) {
+						if($(".myIcon").eq(i).prev().val() !== '') {
+							plus.nativeUI.confirm("你还没有保存哦，是否需要保存", function(e) {
+								if(e.index === 0) {
+									saveChange();
+								} else {
+									plus.webview.close("../../frm/mycenter/lm_myMsg.html");
+								}
+							}, "保存修改", ["保存", "取消"]);
+							return;
+						}
+					}
+					old_back();
+				}
+				mui("#headertitle").on("tap", "#menu", function() {
+					saveChange();
+				})
+				//克隆
+				function clone3(obj) {
+					function Clone() {}
+					Clone.prototype = obj;
+					var o = new Clone();
+					for(var a in o) {
+						if(typeof o[a] == "object") {
+							o[a] = clone3(o[a]);
+						}
+					}
+					return o;
+				}
+
+				function saveChange() {
+					var wobj = plus.webview.getWebviewById("../frm/mycenter/centerIndex.html");
+					console.log("我是我的那一页" + JSON.stringify(wobj))
+					if(wobj) {
+						wobj.reload(); /*将个人中心重新加载*/
+					}
+					//					保存的函数接口操作
+					plus.webview.close("../../frm/mycenter/lm_myMsg.html");
+					plus.nativeUI.toast("保存成功!");
+					localStorage["userdata"] = JSON.stringify(app.newData);
+				}
+				//				mui("body").on("tap", ".myIcon", function() {
+				////					console.log("点击");
+				//					var dataName = $(this).parent().parent().attr("data-name");
+				//					if(app.mydata[dataName] === "") {
+				////						console.log($(this).parent().parent().attr("data-type"));
+				//						var type = $(this).parent().parent().attr("data-type");
+				//						if(type != "" && type == "tx") {
+				//							$(this).parent().find("input").attr("placeholder","请输入").removeAttr("readonly");
+				//							
+				//						} else if(type != "" && type == "xz") {
+				//							var _this = $(this).parent().find("input");
+				//							var picker = new mui.PopPicker();
+				////							分类选项
+				//							picker.setData([{
+				//								value: '男',
+				//								text: '男'
+				//							}, {
+				//								value: '女',
+				//								text: '女'
+				//							}]);
+				//
+				//							picker.show(function(selectItems) {
+				//								app.mydata[dataName]=selectItems[0].value;
+				//								_this.val(app.mydata[dataName]);
+				//							})
+				//						}
+				//					}
+				//				})
+				mui("body").on("tap", ".xz", function() {
+					var dataName = $(this).attr("data-name");
+					console.log(app.mydata[dataName] === "");
+					if(app.mydata[dataName] === "") {
+						//						
+						var _this = $(this).find("input");
+						var picker = new mui.PopPicker();
+						//							分类选项
+						picker.setData([{
+							value: '男',
+							text: '男'
+						}, {
+							value: '女',
+							text: '女'
+						}]);
+
+						picker.show(function(selectItems) {
+							app.newData[dataName] = selectItems[0].value;
+							_this.val(app.newData[dataName]);
+						})
+					}
+
+				})
+				var app = new Vue({
+					el: "#app",
+					data: function() {
+						return {
+							newData: {
+
+							},
+							mydata: {
+								"name": "赵冬",
+								"caridNo": "510824199408171234",
+								"phone": "13258193268",
+								"gender": "女",
+								"ks": "网道技术部",
+								"zylb": "1",
+								"zc": "",
+								"dw": "网道科技",
+								"xk": "",
+								"cszy": "7",
+								"byzy": "7",
+								"bydx": "ceshi ",
+								"byxl": "5",
+								"zgxl": "5",
+								"zczsNo": "534543",
+								"zgzsNo": "",
+								"state": null,
+								"loginTime": "2017年11月06日 14:44:30"
+							},
+							imgPath: "http://brandtrigram.com/Public/Home/img/xingzuo4.png"
+						}
+					}
+				})
+			})(mui);
+		</script>
+	</body>
+
+</html>

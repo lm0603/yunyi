@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的资料</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myMsg.css" />
+		<style type="text/css">
+			#menu {
+				line-height: 44px;
+				color: white;
+				/*display: none;*/
+			}
+			
+			.liRight span {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a id="menu" class="mui-action-menu mui-pull-right">保存</a>-->
+			<h1 class="mui-title">个人资料</h1>
+		</header>
+
+		<div class="mui-content" id="app">
+			<div class="uInfo">
+				<img src="../../../img/about1.png" id="head-img1" />
+			</div>
+			<div class="zbzl">基本资料</div>
+			<ul class="xg">
+
+				<!--
+					资料都不可更改，如果后台为空才可更改
+				-->
+				<li data-name="name" data-type="xt">
+					<div class="liLeft">姓名</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="gender" data-type="xz" class="xz">
+					<div class="liLeft">性别</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="caridNo" data-type="xt">
+					<div class="liLeft">身份证</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="phone" data-type="xt">
+					<div class="liLeft">手机号</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="ks" data-type="xt">
+					<div class="liLeft">科室</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="zylb" data-type="xz" class="xz">
+					<div class="liLeft">职业类别</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="zc" data-type="xz" class="xz">
+					<div class="liLeft">职称</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="dw" data-type="xt">
+					<div class="liLeft">单位</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="xk" data-type="xz" class="xz">
+					<div class="liLeft">学科</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+			</ul>
+
+			<div class="zbzl">详细资料</div>
+			<ul class="xg">
+				<li data-name="cszy" data-type="xz">
+					<!-- class="xz"-->
+					<div class="liLeft">从事专业</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="byzy" data-type="xz">
+					<!-- class="xz"-->
+					<div class="liLeft">毕业专业</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="bydx" data-type="tx">
+					<div class="liLeft">毕业院校</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="byxl" data-type="xz">
+					<!--class="xz"-->
+					<div class="liLeft">毕业学历</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="zgxl" data-type="xz" class="xz">
+					<div class="liLeft">最高学历</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="zczsNo" data-type="tx">
+					<div class="liLeft">注册证书号</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+
+				<li data-name="zgzsNo" data-type="tx">
+					<div class="liLeft">资格证书号</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="state" data-type="xz" class="xz">
+					<div class="liLeft">状态</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+				<li data-name="loginTime" data-type="xt">
+					<div class="liLeft">进入时间</div>
+					<div class="liRight">
+						<input value="" />
+						
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			(function(mui) {
+				mui.init();
+				var isChange = false,
+					mydata,
+					Sid = '',
+					mytype;
+				mui.plusReady(function() {
+
+					Sid = plus.webview.currentWebview().id;
+					//					沉浸式导航
+					if(plus.navigator.isImmersedStatusbar()) {
+						var headerhei = document.getElementById("headertitle");
+						headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+						headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+						//						subpage_style.top = (Math.round(plus.navigator.getStatusbarHeight()) + 44) + 'px';
+					}
+					plus.navigator.setStatusBarBackground("#71c7d5");
+					console.log("完善资料" + localStorage["userdata"])
+					mydata = JSON.parse(localStorage["userdata"]);
+					document.getElementById("head-img1").src = mydata.avatar || "../../../img/about1.png";
+					handle.getMsgType(function(data) {
+						mytype = data;
+						for(var i = 0; i < $("li").length; i++) {
+							var dataName = $("li").eq(i).attr("data-name");
+							//						console.log(dataName);
+							$("li").eq(i).find("input").val(mydata[dataName]);
+							$("li").eq(i).find("input").attr("data-data", mydata[dataName]);
+							if($("li").eq(i).hasClass("xz") && dataName != "gender" && dataName != "zgxl") {
+
+								//								console.log(JSON.stringify(mytype.data[dataName]))
+								//								console.log(mytype.data[dataName].length)
+								//								for(var j = 0; j < mytype.data[dataName].length; j++) {
+								//									console.log(mydata[dataName])
+								//									console.log("id"+mytype.data[dataName][j].id)
+								//									if(mydata[dataName] == mytype.data[dataName][j].id) {
+								//										console.log("name"+mytype.data[dataName][j].name)
+								//										$("li").eq(i).find("input").val(mytype.data[dataName][i].name);
+								//										break;
+								//									}
+								//								}
+							}
+							//						$("li").eq(i).find("input").attr("data",);
+							//							if(dataName == 'name' || dataName == 'caridNo') {
+					
+							$("li").eq(i).find("input").attr("readonly", "true");
+							//							} else {
+							//								$("li").eq(i).find("span").hide();
+							//							}
+						}
+
+					});
+					plus.nativeUI.closeWaiting();
+
+				});
+
+				
+			})(mui);
+		</script>
+	</body>
+
+</html>

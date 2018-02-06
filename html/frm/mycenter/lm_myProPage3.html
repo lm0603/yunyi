@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的项目</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/store/lm_storeIndex.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myPro.css" />
+		<style type="text/css">
+			.proAll>ul#list {
+				padding: 20px 2%;
+				background-color: #fff;
+			}
+			
+			#list li {
+				padding: 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--学习卡-->
+				<ul id="">
+					<li class="proAll" style="display: ;">
+						<ul id="list">
+							<!--<li class="homeList_detail" onclick="goDetail(id)">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+								<div class="homeList_detail_content">
+									<h3>1项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+								<div class="ringhtBtn"><span class="qxyy">取消预约</span> </div>
+							</li>
+						-->
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="mengban">
+				<ul class="dt">
+					<li>
+						<div id="close">
+							X
+						</div>
+					</li>
+					<li>
+						<div class="liF">考试项目</div>
+						<div class="liR">直播项目</div>
+					</li>
+					<li>
+						<div class="liF">考试标准</div>
+						<div class="liR">100题，60分钟</div>
+					</li>
+					<li>
+						<div class="liF">合格标准</div>
+						<div class="liR">60分及格</div>
+					</li>
+					<li class="anniu">
+						<p>直播项目未通过可在考核期限内进行补考</p>
+						<button id="ks">
+									开始考试
+					</button>
+
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				},
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					},
+					down: {
+						contentrefresh: '正在加载...',
+						callback: pulldownRefresh,
+						auto: true
+					}
+				}
+			});
+			var count = 0;
+			var page = 10;
+			var index = 2;
+			/**
+			 * 上拉和下拉加载具体业务实现
+			 * 	token: token,
+				type:type,
+				index:index,
+				page:page
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var data = handle.mypro(localStorage["token"], 3, 1, page);
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					console.log("项目2数据" + JSON.stringify(data))
+					var html = "";
+					mui.each(data.data.list, function(index, value) {
+						html += '<li class="homeList_detail" onclick="goDetail(' + value.id + ')">' +
+							'<div class="homeList_detail_img">' +
+							'<img src="../../../img/about1.png" alt="" />' +
+							'</div>' +
+							'<div class="homeList_detail_content">' +
+							'<h3>' + value.name + '</h3>' +
+							'<p class="content_time">' + value.time + '</p>' +
+							'<p class="content_point">' + value.state + '</p>' +
+							'</div>' +
+							'<div class="ringhtBtn"><span class="qxyy">取消预约</span> </div>' +
+							'</li>';
+					});
+					count = data.data.count;
+					if(data.data.list.length <= 0) {
+						$("#list").html('<li style="padding: 0 2%;">暂无相关数据</li>');
+
+					} else {
+						$("#list").html(html);
+					}
+					//					console.log("count" + count)
+					if(count <= (page * 1)) {
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(true); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+					} else {
+						index = 2;
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().refresh(true); //重置下来控件
+					}
+				}, 1000);
+			}
+
+			function pullupRefresh() {
+				if(count <= (page * (index - 1))) {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+				} else {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((count <= (page * (index - 1)))); //参数为true代表没有更多数据了。
+						var data = handle.mypro(localStorage["token"], 3, index, page);
+						//服务器返回响应，根据响应结果，分析是否登录成功；
+						var html = "";
+						mui.each(data.data.list, function(index, value) {
+							html += '<li class="homeList_detail" onclick="goDetail(' + value.id + ')">' +
+								'<div class="homeList_detail_img">' +
+								'<img src="../../../img/about1.png" alt="" />' +
+								'</div>' +
+								'<div class="homeList_detail_content">' +
+								'<h3>' + value.name + '</h3>' +
+								'<p class="content_time">' + value.time + '</p>' +
+								'<p class="content_point">' + value.state + '</p>' +
+//								'<p class="content_point_ask h3">负责人：' + value.fz + '</p>' +
+								'</div>' +
+								'<div class="ringhtBtn"><span class="qxyy">取消预约</span> </div>' +
+								'</li>';
+						});
+						count = data.data.count;
+						$("#list").append(html);
+						if(count < (page * index)) {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+						} else {
+							index++;
+						}
+					}, 1000);
+				}
+			}
+
+			/**
+			 * 上拉和下拉加载具体业务实现  end
+			 */
+			mui('#pullrefresh').on("tap", "li", function() {
+				this.click();
+			});
+
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+			mui(".proAll").on("tap", ".dati", function() {
+				$("#mengban").show();
+			})
+
+			mui(".dt").on("tap", "#close", function() {
+				$("#mengban").hide();
+			})
+			mui(".proAll").on("tap", ".qxyy", function() {
+				var proName = "xiangmu"; //获取当前项目名字
+				var msg = "请问你是否要取消" + proName;
+
+				plus.nativeUI.confirm(msg, function(e) {
+					console.log(e.value)
+				}, "取消预约", ["确定", "再想想"]);
+			})
+			//			点击详情
+			function goDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/mycenter/lm_myproDetail3.html",
+						title: "完成项目详情",
+						Sid: id
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

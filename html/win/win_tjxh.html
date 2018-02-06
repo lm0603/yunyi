@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-title {
+				/*text-align: left;*/
+			}
+			
+			.mui-bar {
+				background-color: #71C7D5;
+				color: white;
+			}
+			
+			.mui-bar a,
+			.mui-bar h1 {
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a id="menu" class="mui-action-menu mui-icon mui-icon-plus mui-pull-right"></a>
+			<h1 class="mui-title">我的学会</h1>
+		</header>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var subpage_style = {
+					top: '44px',
+					bottom: '0px'
+				};
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("headertitle");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+					subpage_style.top = (Math.round(plus.navigator.getStatusbarHeight()) + 44) + 'px';
+				}
+				var self = plus.webview.currentWebview();
+				//				var title = document.getElementById("title");
+				//				title.innerText = self.title;
+
+				var urls = self.showurl;
+				var _show = plus.webview.create(urls, urls, subpage_style, {
+					Sid: self.Sid,
+					Type: self.Type
+				});
+				self.append(_show);
+				plus.webview.show(_show);
+				//	console.log(self.title);
+			})
+			mui("header").on("tap", "#menu", function() {
+				mui.openWindow({
+					url: "../win/win_blueCenter.html",
+					//					id: dataHref,
+					extras: {
+						showurl: "../frm/mycenter/lm_myxhAll.html",
+						title: "添加"
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

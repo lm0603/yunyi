@@ -1,0 +1,101 @@
+.mui-content{
+	position: relative;
+	color: #333333;
+}
+.topBg{
+	height: 180px;
+	background: #71C7D5 url(../../img/bgTop.png);
+	background-size: cover;
+}
+.bottomBg{
+	height: 150px;
+	background-color: #fff;
+}
+.my{
+	height: 220px;
+	width: 96%;
+	position: absolute;
+	background-color: #fff;
+	top: 100px;
+	left: 2%;
+	text-align: center;
+	line-height: 2rem;
+}
+.headerImg{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	top:-40px;
+	left: calc(50% - 40px);
+}
+.headerImg>img{
+	width:100%;
+	min-height: 100%;
+}
+.uInfo{
+	
+}
+.uName{
+	margin-top: 45px;
+	font-size: 1.1rem;
+	padding-left: 21px;
+}
+.xg{
+	margin-left: 10px;
+	color: #2dbea9;
+}
+.keshi,.zhiwu{
+	margin: 0 10px;
+}
+.uInfo2{
+	overflow: hidden;
+	margin-top: 15px;
+}
+.uInfo2>li{
+	width: 33.3333333333333333%;
+	float: left;
+	color: rgb(187, 187, 187);
+}
+
+.uInfo2>li>img{
+	width: 20%;
+	min-width: 25px;
+	max-width: 30px;
+}
+
+/*下面的白色部分*/
+.myAll{
+	background-color: #FFFFFF;
+	padding: 0 3%;
+}
+.myPoint{
+	height: 4rem;
+	width: 100%;
+	padding: 0.5rem 0;
+	line-height: 3rem;
+	border-bottom: 1px solid #eeeeee;
+	color: #333333;
+}
+.myPointlast{
+	border-bottom: none;
+}
+.myPoint img{
+	width: 1.4rem;
+	margin-right: 1rem;
+	float: left;
+	margin-top: 0.7rem;
+}
+
+.myPoint .myImg1{
+	height: 1.4rem;
+	margin-right: 1rem;
+	float: left;
+	margin-top: 0.3rem;
+}
+.myPoint .mui-icon{
+	float: right;
+	line-height: 2rem;
+	color: #dadada;
+}

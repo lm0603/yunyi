@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学会搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxh.css" />
+		<style type="text/css">
+			.search {
+				padding: 0;
+				height: 80px;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 3;
+				width: 100%;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			
+			.search>div {
+				width: 80%;
+				height: 40px;
+				padding: 0 2%;
+				border: none;
+				margin: 5px 0 0 3%;
+				background-color: #F7F7F7;
+				float: left;
+			}
+			
+			.search input {
+				width: 100%;
+				height: 40px;
+				padding: 0 2%;
+				border: none;
+				background-color: #F7F7F7;
+			}
+			
+			.search span {
+				color: #222222;
+			}
+			
+			body {
+				margin-top: 70px;
+			}
+			
+			#ss {
+				float: right;
+				margin-right: 10px;
+				margin-top: 5px;
+			}
+			
+			#pullrefresh {
+				margin-top: 90px;
+			}
+			
+			.mui-scroll-wrapper {
+				overflow: visible;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-content" id="headertitle">
+			<div class="search">
+				<div class="mui-input-row mui-search mui-input-clear">
+					<input type="text" name="xhss" id="ssc" value="" placeholder='关键词' class="mui-input-clea" />
+				</div>
+				<span id="ss">取消</span>
+				<hr class="lmHr" style="height: 15px;margin-top: calc(2% + 40px);" />
+			</div>
+			<div id="">
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul id="xh">
+							<!--<li>西32222南大高新科技学会</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/typeJson.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementsByClassName("search")[0];
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+				}
+				var dataname = self.dataName,
+					dwdata = self.dw;
+				console.log(self.dw)
+				if(self.dataName == "cszy" || self.dataName == "byzy") {
+					dataname = 'zy'
+				}
+				$("input[name=xhss]").on("input propertychange", function() {
+					var htmls = "";
+					var val = $(this).val();
+					if(dataname == 'zy' || dataname == "xk" || dataname == 'dw') {
+						if(val) {
+							mui.each(typeJson[dataname], function(index, item) {
+								if(item.name.indexOf(val) >= 0) {
+									htmls += '<li>' + item.name + '</li>'
+								}
+							})
+							if(htmls==''){
+								$('#xh').html('<li>无['+val+']相关内容</li>');
+							}else{
+								$('#xh').html(htmls);
+							}
+						}
+					} else {
+						if(dwdata) {
+							mui.each(typeJson.dw, function(index, item) {
+								if(item.name == dwdata) {
+									mui.each(item.ks, function(i, items) {
+										if(items.name.indexOf(val) >= 0) {
+											htmls += '<li>' + items.name + '</li>'
+										}
+									})
+								}
+							})
+							if(htmls==''){
+								$('#xh').html('<li>'+dwdata+'下没有对应['+val+']科室哦</li>');
+							}else{
+								$('#xh').html(htmls);
+							}
+							
+						}else{
+							mui.alert("请先选择单位哦！")
+						}
+					}
+					//				执行搜索的函数
+
+				});
+				mui("body").on("tap", "#ss", function() {
+					mui.back()
+				})
+				mui("#xh").on("tap", "li", function() {
+					var htmls = $(this).html();
+					console.log(htmls);
+					var preView = plus.webview.getWebviewById('../frm/mycenter/lm_myMsg.html');
+					console.log(JSON.stringify(preView))
+					//触发上一个页面刷新图片事件
+					mui.fire(preView, 'getType', {
+						dataName: self.dataName,
+						dataDetail: htmls
+					});
+					mui.back();
+				})
+			})
+		</script>
+	</body>
+
+</html>

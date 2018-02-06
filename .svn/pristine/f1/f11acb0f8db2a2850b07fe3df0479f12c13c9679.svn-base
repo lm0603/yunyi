@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的项目</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/store/lm_storeIndex.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myPro.css" />
+		<link rel="stylesheet" href="../../../css/navbar.css" />
+		<style type="text/css">
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				width: 33.3%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" style="width: 100%;">
+						<a class="mui-control-item mui-active" href="#item1mobile" data-wid="lm_myProPage1.html">
+							预约项目<br />
+							<span></span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile" data-wid="lm_myProPage2.html">
+							进行项目<br />
+							<span></span>
+						</a>
+						<a class="mui-control-item" href="#item3mobile" data-wid="lm_myProPage3.html">
+							完成项目<br />
+							<span></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/webviewGroup.js" ></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false
+				}
+			});
+			var stylec = {
+				top: "45px",
+				bottom: "0px" 
+			};
+			mui.plusReady(function() {
+//				if(plus.navigator.isImmersedStatusbar()) {
+//					var headerhei = document.getElementById("headertitle");
+//					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+//					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+//				}
+				plus.navigator.setStatusBarBackground("#71c7d5");
+				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+				var group = new webviewGroup("../frm/mycenter/lm_frm_myProIndex.html", {
+					items: [{
+						id: "lm_myProPage1.html",
+						url: "lm_myProPage1.html",
+						styles: stylec,
+						extras: {}
+					}, {
+						id: "lm_myProPage2.html",
+						url: "lm_myProPage2.html",
+						styles: stylec,
+						extras: {}
+					}, {
+						id: "lm_myProPage3.html",
+						url: "lm_myProPage3.html",
+						styles: stylec,
+						extras: {}
+					}],
+					onChange: function(obj) {
+						console.log(obj.index+"")
+						console.log("我是第"+(parseInt(obj.index) + 1)+"个")
+						var c = document.querySelector(".mui-control-item.mui-active");
+						if(c) {
+							c.classList.remove("mui-active");
+						}
+						document.querySelector(".mui-scroll .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")").classList.add("mui-active");
+					}
+				});
+				mui(".mui-scroll").on("tap", ".mui-control-item", function(e) {
+					var wid = this.getAttribute("data-wid");
+					group.switchTab(wid);
+				});
+				plus.nativeUI.closeWaiting();
+			});
+			mui.back = function() {
+				var _self = plus.webview.currentWebview();
+				_self.close("auto");
+			}
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+			mui(".proAll").on("tap", ".dati", function() {
+				$("#mengban").show();
+			})
+
+			mui(".dt").on("tap", "#close", function() {
+				$("#mengban").hide();
+			})
+			mui(".proAll").on("tap", ".qxyy", function() {
+				var proName = "xiangmu"; //获取当前项目名字
+				var msg = "请问你是否要取消" + proName;
+
+				plus.nativeUI.confirm(msg, function(e) {
+					console.log(e.value)
+				}, "取消预约", ["确定", "再想想"]);
+			})
+			//			点击详情
+			function goDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/mycenter/lm_myproDetail2.html",
+						title: "预约项目详情",
+						Sid: id
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

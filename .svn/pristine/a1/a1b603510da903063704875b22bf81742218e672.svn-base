@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>成绩解析</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/zb/lm_cj.css" />
+		<style type="text/css">
+			body {
+				background: white;
+			}
+			
+			#backPro .mui-btn-blue {
+				background-color: #71C7D5;
+				border-radius: 10px;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">考试成绩</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="cjHeader">
+				<div class="cjHeaderImg">
+					<img src="../../../img/about1.png" />
+				</div>
+				<div class="cjHeaderMsg">
+					<div class="cjName" id="teamname">张某某</div>
+					<div class="cjdetail">
+						<div>用时：<span id="createusername"></span>分钟</div>
+					</div>
+				</div>
+				<div class="fs" id="cj"></div>
+
+			</div>
+
+			<hr class="lmHr" />
+			<div class="myAll" id="ksFs">
+				<div class="myPoint" id="teamedits">
+					<span>
+					通过学分
+				</span>
+					<span class="mui-icon getJf" id="xf"></span>
+				</div>
+				<div class="myPoint" id="ksTest">
+					<span>
+					试题分析
+				</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint" id="ksAgain">
+					<span>重新考试</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint" id="pj">
+					<span>评价</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint myPointlast" id="tishi">
+					提示：答完题记得评价哦 项目才算完成
+				</div>
+				<div id="backPro">
+					<button type="button" class="mui-btn mui-btn-blue mui-btn-block">返回项目介绍</button>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var self,upType=1;
+			mui.plusReady(function() {
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("headertitle");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+				}
+				self = plus.webview.currentWebview();
+				if(self.Type==1){
+					upType=2;
+				}
+				console.log(JSON.stringify(self));
+				document.getElementById("teamname").innerHTML = localStorage["username"];
+				document.getElementById("cj").innerHTML = self.param.data.cj + "分";
+				document.getElementById("xf").innerHTML = self.param.data.xf + "分";
+				document.getElementById("createusername").innerHTML = self.param.time;
+				if(self.Type==2){
+					document.getElementById("pj").style.display = "none";	
+				}
+				
+				plus.webview.close('lm_dt.html', "none");
+
+			})
+			//			试题分析
+			mui("#ksFs").on("tap", "#ksTest", function() {
+				
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					id: "lm_fx.html",
+					extras: {
+						showurl: "../frm/zb/lm_fx.html",
+						title: "试题分析",
+						Sid: self.Sid,
+						Type: upType,
+						param: self.param
+
+					}
+				});
+			})
+			//			重新考试
+			mui("#ksFs").on("tap", "#ksAgain", function() {
+				//				判断是否符合考试条件,在考核次数以内
+				if(true) {
+					mui.openWindow({
+						url: "../../frm/zb/lm_dt.html",
+						id: "lm_dt.html",
+						extras: {
+							Sid: self.Sid,
+							Type: self.Type
+						}
+					});
+
+				} else {
+					plus.nativeUI.alert("不能再考了哦");
+
+				}
+			})
+			mui("#ksFs").on("tap", "#pj", function() {
+
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					//					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/lm_pingjia.html",
+						title: "评价"
+					}
+				});
+			})
+			mui.back = function() {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/zb/lm_zbDetail.html",
+						title: "点播详情",
+						Sid: sessionStorage.getItem("proId"),
+						Num: sessionStorage.getItem("proNum")
+					}
+				});
+				plus.webview.close('lm_dt.html', "none");
+				plus.webview.close('../../frm/zb/lm_cj.html', "none");
+				plus.webview.close('我的考试-项目考试', "none");
+			};
+			//			返回项目介绍
+			mui("#backPro").on("tap", "button", function() {
+				mui.back()
+			});
+		</script>
+	</body>
+
+</html>

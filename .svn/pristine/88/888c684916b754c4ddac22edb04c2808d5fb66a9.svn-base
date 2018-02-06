@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proDetail.css" />
+		<style type="text/css">
+			#yuyue>button {
+				width: calc(50% - 0.5px);
+				float: left;
+				border-radius: 0;
+			}
+			
+			#yuyue>button:first-of-type {
+				border-radius: 10px 0 0 10px;
+				border-right: 1px solid #fff;
+			}
+			
+			#yuyue>button:last-of-type {
+				border-radius: 0 10px 10px 0;
+			}
+			.mui-content{
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<hr class="lmHr" />
+			<div>
+				<ul id="proDetail">
+					<li>
+						<div class="liLeft">项目名称</div>
+						<div class="liRight">脑外科某某某项目</div>
+					</li>
+					<li>
+						<div class="liLeft">项目编号</div>
+						<div class="liRight">000000000</div>
+					</li>
+					<li>
+						<div class="liLeft">所属学科</div>
+						<div class="liRight">脑外科</div>
+					</li>
+					<li>
+						<div class="liLeft">学时</div>
+						<div class="liRight">12时</div>
+					</li>
+					<li>
+						<div class="liLeft">学分</div>
+						<div class="liRight">5分</div>
+					</li>
+					<li>
+						<div class="liLeft">学分类别</div>
+						<div class="liRight">Ⅰ类学分</div>
+					</li>
+					<li>
+						<div class="liLeft">项目开展时间</div>
+						<div class="liRight">2017-10-19 14:00</div>
+					</li>
+					<li>
+						<div class="liLeft">项目结束时间</div>
+						<div class="liRight">2017-10-19 14:00</div>
+					</li>
+					<li>
+						<div class="liLeft">预约截至时间</div>
+						<div class="liRight liTs">2017-10-19 14:00</div>
+					</li>
+					<li>
+						<div class="liLeft">授课地点</div>
+						<div class="liRight">成都市某某医院某某科室</div>
+					</li>
+					<li>
+						<div class="liLeft">项目负责人</div>
+						<div class="liRight">某某某</div>
+					</li>
+					<li>
+						<div class="liLeft">主讲教师</div>
+						<div class="liRight">某某某</div>
+					</li>
+					<li>
+						<div class="liLeft">主办单位</div>
+						<div class="liRight">东方医院</div>
+					</li>
+					<li>
+						<div class="liLeft">单位联系电话</div>
+						<div class="liRight">13800009999</div>
+					</li>
+					<li>
+						<div class="liLeft">活动形式</div>
+						<div class="liRight">现场授课</div>
+					</li>
+					<li>
+						<div class="liLeft">考核方式</div>
+						<div class="liRight">答题</div>
+					</li>
+					<li>
+						<div class="liLeft">简介</div>
+						<div class="liRight">关于项目介绍关于项目介绍关于项目介绍关于项目介绍关于项目介绍关于项目介绍关于项目介绍关于项目介绍关于项目介绍</div>
+					</li>
+					<li>
+						<div class="liLeft">内容描述</div>
+						<div class="liRight">关于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述关 于项目内容描述关于项目内容描述关于项目内容描述关于项目内容描述
+						</div>
+					</li>
+					<li>
+						<div class="liLeft">备注</div>
+						<div class="liRight">脑外科某某某项目</div>
+					</li>
+				</ul>
+			</div>
+			
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+		</script>
+	</body>
+
+</html>

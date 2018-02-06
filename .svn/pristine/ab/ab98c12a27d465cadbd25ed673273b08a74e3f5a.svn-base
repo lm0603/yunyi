@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css"/>
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxxDetail.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <div class="xxArea">
+		    	<p>你好！<span id="uName">张三</span></p>
+		    	<p>
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    		关于你最近收到的项目
+		    	</p>
+		    </div>
+		    <p class="fsr">
+		    	<span>东方医院-内科</span>
+		    	<span>2017-10-12 12:00</span>
+		    </p>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

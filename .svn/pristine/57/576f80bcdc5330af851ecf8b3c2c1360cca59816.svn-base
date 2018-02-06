@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商城首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proAll.css" />
+		<link rel="stylesheet" href="../../../css/store/lm_storeIndex.css" />
+		<style type="text/css">
+			/*#slider .mui-control-item{
+				width: 50%;
+				background-color: #71C7D5;
+			}*/
+			.mui-scroll{
+				background-color: #71C7D5;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+				margin: 0;
+				width: 50%;
+				background-color: #71C7D5;
+				color: white;
+				line-height: 20px;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+				background-color: #71C7D5;
+				color: rgb(0, 176, 150);
+			}
+			.mui-control-item span{
+				display: inline-block;
+				height: 2px;
+				width: 30%;
+				background-color: #71C7D5;
+			}
+			.mui-control-item.mui-active span{
+				background-color: rgb(0, 176, 150);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">购知识</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll" style="width: 100%;">
+						<a class="mui-control-item mui-active" href="#item1mobile" data-wid="lm_indexPage1.html">
+							学习卡<br />
+							<span></span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile" data-wid="lm_indexPage2.html">
+							视频<br />
+							<span ></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/webviewGroup.js" ></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false
+				}
+			});
+			var stylec = {
+				top: "85px",
+				bottom: "0px" 
+			};
+			mui.plusReady(function() {
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("headertitle");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+				}
+				plus.navigator.setStatusBarBackground("#71c7d5");
+				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+				var group = new webviewGroup("../frm/store/lm_frm_index.html", {
+					items: [{
+						id: "lm_indexPage1.html",
+						url: "lm_indexPage1.html",
+						styles: stylec,
+						extras: {}
+					}, {
+						id: "lm_indexPage2.html",
+						url: "lm_indexPage2.html",
+						styles: stylec,
+						extras: {}
+					}],
+					onChange: function(obj) {
+						console.log(obj.index+"")
+						console.log("我是第"+(parseInt(obj.index) + 1)+"个")
+						var c = document.querySelector(".mui-control-item.mui-active");
+						if(c) {
+							c.classList.remove("mui-active");
+						}
+						document.querySelector(".mui-scroll .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")").classList.add("mui-active");
+					}
+				});
+				mui(".mui-scroll").on("tap", ".mui-control-item", function(e) {
+					var wid = this.getAttribute("data-wid");
+					group.switchTab(wid);
+				});
+				plus.nativeUI.closeWaiting();
+			});
+			mui.back = function() {
+				var _self = plus.webview.currentWebview();
+				_self.close("auto");
+			}
+			//			点击学习卡详情
+			function xxkDetail(id, name) {
+				mui.openWindow({
+					url: "../../win/win_whiteLeft.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_xxkDetail.html",
+						title: name,
+						Sid: id //项目的id
+					}
+				});
+			}
+
+			//			点击直播详情
+			function zbDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/store/lm_video.html",
+						title: "点播详情",
+						Sid: id //项目的id
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

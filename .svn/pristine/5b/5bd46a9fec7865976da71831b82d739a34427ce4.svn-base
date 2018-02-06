@@ -1,0 +1,957 @@
+{
+	"html/frm/lm_login.html": {
+		"resources": [
+			"img/user.png",
+			"img/tel.png",
+			"js/mui.min.js",
+			"img/id.png",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/logo.png",
+			"css/lm_login.css",
+			"img/bg.png",
+			"img/code.png"
+		],
+		"refer": [
+			"html/win/win_home.html",
+			"html/frm/lm_login2.html",
+			"html/frm/mycenter/lm_myMsg.html"
+		]
+	},
+	"html/frm/lm_proDetail.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/lm_proDetail.css"
+		]
+	},
+	"html/frm/lm_seach.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/frm/lm_proAll.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/jquery-1.11.0.js",
+			"css/lm_proAll.css",
+			"img/about1.png"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/base.js",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/win/win_home.html",
+			"html/frm/lm_login.html"
+		]
+	},
+	"html/frm/lm_search.html": {
+		"resources": [
+			"img/bgTop.png",
+			"css/lm_search.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/about1.png",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/store/lm_storeIndex.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/common.css",
+			"css/lm_proAll.css",
+			"js/jquery-1.11.0.js",
+			"img/about1.png",
+			"css/store/lm_storeInde.css",
+			"css/store/lm_storeIndex.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/win/win_whiteLeft.html",
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/store/lm_buyThis.html": {
+		"resources": [
+			"img/wx.png",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/store/lm_buyThis.css",
+			"img/zfb.png",
+			"css/mui.min.css",
+			"img/c1.png",
+			"img/c2.png"
+		]
+	},
+	"html/frm/store/lm_video.html": {
+		"resources": [
+			"css/store/lm_video.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/bofang.png",
+			"fonts/mui.ttf",
+			"img/about1.png",
+			"img/lock.png"
+		],
+		"refer": [
+			"html/win/win_whiteLeft.html"
+		]
+	},
+	"html/frm/zb/lm_zbIndex.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"img/about1.png",
+			"css/lm_proAll.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/zb/lm_zbDetail.html": {
+		"resources": [
+			"css/zb/lm_zbDetail.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/about1.png",
+			"img/bofang.png",
+			"fonts/iconfont.svg",
+			"img/no.png",
+			"html/frm/zb/lm_dt.html"
+		],
+		"refer": [
+			"html/win/win_whiteLeft.html",
+			"html/win/win_ks.html",
+			"html/frm/zb/lm_dt.html"
+		]
+	},
+	"html/frm/zb/lm_payOk.html": {
+		"resources": [
+			"img/ok.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/common.css",
+			"fonts/iconfont.ttf"
+		]
+	},
+	"html/frm/zb/lm_dt.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/zb/lm_dt.css",
+			"js/jquery-1.11.0.js"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html",
+			"html/frm/zb/lm_cj.html"
+		]
+	},
+	"html/frm/zb/lm_cj.html": {
+		"resources": [
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/zb/lm_cj.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html",
+			"html/win/win_bluePj.html",
+			"html/win/win_blueCenter.html",
+			"html/win/win_home.html"
+		]
+	},
+	"html/frm/zb/lm_fx.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/zb/lm_fx.css",
+			"fonts/mui.ttf",
+			"css/zb/lm_dt.css",
+			"fonts/iconfont.ttf",
+			"js/jquery-1.11.0.js"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/zb/lm_yy.html": {
+		"resources": [
+			"css/zb/lm_zbDetail.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"img/no.png",
+			"css/mui.min.css",
+			"img/about1.png",
+			"img/bofang.png"
+		]
+	},
+	"html/frm/mycenter/centerIndex.html": {
+		"resources": [
+			"img/bgTop.png",
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mycenter/centerIndex.css",
+			"css/mui.min.css",
+			"img/about1.png",
+			"fonts/iconfont.ttf",
+			"img/gwc.png",
+			"img/ewm.png",
+			"img/center1.png",
+			"fonts/mui.ttf",
+			"img/center5.png",
+			"img/ks.png",
+			"img/center3.png",
+			"img/center4.png",
+			"img/center6.png",
+			"img/center2.png",
+			"js/jquery-1.11.0.js"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html",
+			"html/win/win_tjxh.html",
+			"html/frm/mycenter/lm_myxh.html",
+			"html/frm/lm_login.html",
+			"html/frm/mycenter/lm_myMsg.html",
+			"html/frm/mycenter/lm_myMsgshow.html"
+		]
+	},
+	"html/frm/mycenter/lm_ewm.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/wdewm.png",
+			"img/about1.png",
+			"css/mycenter/lm_ewm.css",
+			"css/common.css"
+		]
+	},
+	"html/frm/mycenter/lm_xfcx.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mycenter/lm_xfcx.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"img/center6.png"
+		]
+	},
+	"html/frm/mycenter/lm_myMsg.html": {
+		"resources": [
+			"img/msgBg.png",
+			"js/mui.min.js",
+			"css/mycenter/lm_myMsg.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"html/frm/mycenter/cut.html",
+			"html/win/win_home.html"
+		]
+	},
+	"html/frm/lm_pingjia.html": {
+		"resources": [
+			"img/start.png",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/lm_pingjia.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myPro.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myks.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png",
+			"css/mycenter/lm_myks.css"
+		],
+		"refer": [
+			"html/win/win_home.html"
+		]
+	},
+	"html/win/win_home.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"fonts/homefont/iconfont.ttf",
+			"html/frm/lm_homePage.html",
+			"html/frm/mycenter/centerIndex.html"
+		],
+		"refer": [
+			"html/frm/mycenter/centerIndex.html",
+			"html/frm/store/lm_storeIndex.html",
+			"html/frm/zb/lm_zbIndex.html",
+			"html/frm/lm_homePage.html",
+			"html/frm/store/lm_frm_index.html",
+			"html/frm/zb/lm_frm_zbIndex.html"
+		]
+	},
+	"html/frm/lm_homePage.html": {
+		"resources": [
+			"img/bgTop.png",
+			"img/dial.png",
+			"css/lm_homrPage.css",
+			"img/LOGOS.png",
+			"fonts/mui.ttf",
+			"img/about1.png",
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/frm/lm_search.html",
+			"html/win/win_blueLeft.html",
+			"html/frm/lm_proAll.html",
+			"html/win/win_blueCenter.html",
+			"html/frm/lm_frm_proAll.html",
+			"html/frm/lm_login.html"
+		]
+	},
+	"html/win/win_blueLeft.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/lm_proDetail.html",
+			"html/frm/zb/lm_cj.html",
+			"html/frm/mycenter/lm_myPro.html",
+			"html/frm/mycenter/lm_ewm.html",
+			"html/frm/mycenter/lm_xx.html",
+			"html/frm/mycenter/lm_xfcx.html",
+			"html/frm/mycenter/lm_gm.html",
+			"html/frm/mycenter/lm_myMsg.html",
+			"html/frm/zb/lm_fx.html",
+			"html/frm/mycenter/lm_frm_gmIndex.html",
+			"html/frm/mycenter/lm_frm_myProIndex.html",
+			"html/frm/mycenter/lm_frm_myksIndex.html",
+			"html/frm/mycenter/lm_frm_xxIndex.html"
+		],
+		"refer": [
+			"html/frm/lm_proDetail.html",
+			"html/frm/zb/lm_cj.html",
+			"html/frm/zb/lm_fx.html",
+			"html/frm/mycenter/lm_gm.html",
+			"html/frm/mycenter/lm_ewm.html",
+			"html/frm/mycenter/lm_myks.html",
+			"html/frm/mycenter/lm_myMsg.html",
+			"html/frm/mycenter/lm_xx.html",
+			"html/frm/mycenter/lm_xfcx.html",
+			"html/frm/mycenter/lm_myxh.html",
+			"html/frm/mycenter/lm_myPro.html",
+			"html/frm/mycenter/lm_myxxDetail.html",
+			"html/frm/mycenter/lm_myproDetail2.html",
+			"html/frm/mycenter/lm_frm_gmIndex.html",
+			"html/frm/mycenter/lm_frm_myksIndex.html",
+			"html/frm/mycenter/lm_frm_xxIndex.html",
+			"html/frm/mycenter/lm_frm_myProIndex.html",
+			"html/frm/mycenter/lm_xxkDetail.html",
+			"html/frm/mycenter/lm_xxkDetail2.html",
+			"html/frm/mycenter/lm_myproDetail1.html",
+			"html/frm/mycenter/lm_myproDetail3.html"
+		]
+	},
+	"html/win/win_whiteLeft.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/store/lm_xxkDetail.html",
+			"html/frm/lm_buyThis.html"
+		],
+		"refer": [
+			"html/frm/store/lm_xxkDetail.html",
+			"html/frm/lm_buyThis.html"
+		]
+	},
+	"html/frm/store/lm_xxkDetail.html": {
+		"resources": [
+			"css/store/lm_xxkDetail.css",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"img/about1.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_whiteLeft.html"
+		]
+	},
+	"html/frm/lm_buyThis.html": {
+		"resources": [
+			"img/wx.png",
+			"css/lm_buyThis.css",
+			"img/zfb.png",
+			"img/c1.png",
+			"img/c2.png",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html",
+			"html/win/win_home.html"
+		]
+	},
+	"html/win/win_blueCenter.html": {
+		"resources": [
+			"html/frm/zb/lm_zbDetail.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/mycenter/lm_myxhAll.html",
+			"html/frm/lm_search.html",
+			"html/frm/store/lm_video.html",
+			"html/frm/lm_pingjia.html"
+		],
+		"refer": [
+			"html/frm/zb/lm_zbDetail.html",
+			"html/frm/lm_pingjia.html",
+			"html/frm/mycenter/lm_myxhAll.html",
+			"html/frm/lm_search.html",
+			"html/frm/store/lm_video.html"
+		]
+	},
+	"html/win/win_ks.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/zb/lm_dt.html"
+		],
+		"refer": [
+			"html/frm/zb/lm_dt.html"
+		]
+	},
+	"html/win/win_bluePj.html": {
+		"resources": [
+			"html/frm/lm_pingjia.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/frm/lm_pingjia.html"
+		]
+	},
+	"html/frm/mycenter/lm_gm.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_gm.css",
+			"img/about1.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"html/frm/mycenter/lm_xx.html": {
+		"resources": [
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_xx.css",
+			"img/about1.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myxh.html": {
+		"resources": [
+			"css/mycenter/lm_myxh.css",
+			"css/common.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/mycenter/lm_myxhPage.html"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html",
+			"html/frm/mycenter/lm_myxhPage.html"
+		]
+	},
+	"html/win/win_tjxh.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/frm/mycenter/lm_myxh.html"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_myxh.html",
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/mycenter/lm_myxhAll.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"css/mycenter/lm_myxh.css"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_myxhss.html"
+		]
+	},
+	"html/frm/mycenter/lm_myxxDetail.html": {
+		"resources": [
+			"css/common.css",
+			"css/mycenter/lm_myxxDetail.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"html/frm/store/lm_frm_index.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/jquery-1.11.0.js",
+			"css/lm_proAll.css",
+			"js/mui.min.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"js/webviewGroup.js",
+			"html/frm/store/lm_indexPage1.html",
+			"fonts/mui.ttf",
+			"css/navbar.css"
+		],
+		"refer": [
+			"html/frm/store/lm_indexPage1.html",
+			"html/frm/store/lm_indexPage2.html"
+		]
+	},
+	"html/frm/store/lm_indexPage1.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png",
+			"css/lm_proAll.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/win/win_whiteLeft.html"
+		]
+	},
+	"html/frm/store/lm_indexPage2.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png",
+			"css/lm_proAll.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/mycenter/lm_myxhss.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/mycenter/lm_myxh.css"
+		]
+	},
+	"html/frm/mycenter/lm_myproDetail2.html": {
+		"resources": [
+			"css/lm_proDetail.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html",
+			"html/frm/zb/lm_fx.html",
+			"html/win/win_ks.html",
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/cut.html": {
+		"resources": [
+			"js/exif.js",
+			"css/cropper.css",
+			"js/binaryajax.js",
+			"js/cropper.js",
+			"js/mui.js",
+			"js/jquery-1.11.0.js",
+			"css/mui.min.css"
+		]
+	},
+	"html/frm/zb/lm_frm_zbIndex.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/lm_proAll.css",
+			"js/webviewGroup.js",
+			"html/frm/zb/lm_frm_zbpage1.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/frm/zb/lm_frm_zbpage1.html",
+			"html/frm/zb/lm_frm_zbpage2.html"
+		]
+	},
+	"html/frm/zb/lm_frm_zbpage1.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"img/about1.png",
+			"css/lm_proAll.css"
+		],
+		"refer": [
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/zb/lm_frm_zbpage2.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"fonts/iconfont.ttf",
+			"img/about1.png",
+			"css/lm_proAll.css"
+		]
+	},
+	"html/frm/mycenter/lm_frm_gmIndex.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_gm.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/navbar.css",
+			"js/webviewGroup.js",
+			"html/frm/mycenter/lm_gmPage1.html"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_gmPage2.html",
+			"html/frm/mycenter/lm_gmPage1.html"
+		]
+	},
+	"html/frm/mycenter/lm_gmPage1.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_gm.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_gmPage2.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_gm.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		]
+	},
+	"html/frm/mycenter/lm_frm_myksIndex.html": {
+		"resources": [
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mycenter/lm_myks.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/navbar.css",
+			"js/webviewGroup.js",
+			"fonts/mui.ttf",
+			"html/frm/mycenter/lm_gmPage1.html",
+			"html/frm/mycenter/lm_myksPage1.html"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_gmPage1.html",
+			"html/frm/mycenter/lm_myksPage1.html",
+			"html/frm/mycenter/lm_myksPage2.html",
+			"html/frm/mycenter/lm_myksPage3.html"
+		]
+	},
+	"html/frm/mycenter/lm_myksPage1.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/mycenter/lm_myks.css"
+		],
+		"refer": [
+			"html/frm/zb/lm_dt.html",
+			"html/win/win_home.html",
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myksPage2.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/mycenter/lm_myks.css"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myksPage3.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/mycenter/lm_myks.css"
+		]
+	},
+	"html/frm/mycenter/lm_frm_xxIndex.html": {
+		"resources": [
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_xx.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/navbar.css",
+			"js/webviewGroup.js",
+			"html/frm/mycenter/lm_gmPage1.html",
+			"fonts/mui.ttf",
+			"html/frm/mycenter/lm_xxPage1.html"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_gmPage1.html",
+			"html/frm/mycenter/lm_xxPage1.html",
+			"html/frm/mycenter/lm_xxPage2.html"
+		]
+	},
+	"html/frm/mycenter/lm_xxPage1.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_xx.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_xxPage2.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mycenter/lm_xx.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_frm_myProIndex.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/navbar.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"html/frm/mycenter/lm_myksPage1.html",
+			"js/webviewGroup.js",
+			"fonts/mui.ttf",
+			"html/frm/mycenter/lm_myProPage1.html"
+		],
+		"refer": [
+			"html/frm/mycenter/lm_myksPage1.html",
+			"html/frm/mycenter/lm_myProPage2.html",
+			"html/frm/mycenter/lm_myProPage1.html",
+			"html/frm/mycenter/lm_myProPage3.html"
+		]
+	},
+	"html/frm/mycenter/lm_myProPage1.html": {
+		"resources": [
+			"img/about1.png",
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myProPage2.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/mycenter/lm_myProPage3.html": {
+		"resources": [
+			"css/store/lm_storeIndex.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/mycenter/lm_myPro.css",
+			"css/common.css",
+			"css/mui.min.css",
+			"img/about1.png"
+		],
+		"refer": [
+			"html/win/win_blueLeft.html"
+		]
+	},
+	"html/frm/lm_frm_proAll.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/lm_proAll.css",
+			"css/navbar.css",
+			"js/webviewGroup.js",
+			"html/frm/lm_proPage1.html"
+		],
+		"refer": [
+			"html/frm/lm_proPage1.html",
+			"html/frm/lm_proPage2.html",
+			"html/win/win_blueCenter.html"
+		]
+	},
+	"html/frm/lm_proPage1.html": {
+		"resources": [
+			"img/about1.png",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"css/lm_proAll.css"
+		]
+	},
+	"html/frm/lm_proPage2.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.0.js",
+			"css/common.css",
+			"img/about1.png",
+			"css/lm_proAll.css"
+		]
+	},
+	"html/frm/lm_login2.html": {
+		"refer": [
+			"html/win/win_home.html"
+		]
+	},
+	"html/frm/mycenter/lm_xxkDetail.html": {
+		"refer": [
+			"html/frm/zb/lm_dt.html"
+		]
+	}
+}

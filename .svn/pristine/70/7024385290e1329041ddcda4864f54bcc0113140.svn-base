@@ -1,0 +1,20 @@
+.xxArea{
+	width: 90%;
+	margin:40px auto 10px;
+	border-radius: 10px;
+	padding: 30px;background-color: #fff;
+
+}
+.xxArea>p{
+	margin: 10px 0;
+	color: #333;
+	font-size: 1rem;
+	text-indent: 2rem;
+}
+.xxArea>p:first-of-type{
+	text-indent: 0;
+}
+.fsr{
+	float: right;
+	margin-right: 5%;
+}

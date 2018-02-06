@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/lm_homrPage.css" />
+		<style type="text/css">
+			.searchBanner{
+				margin-top: 20px;
+			}
+			#headertitle{
+				height: 25px;background: #5BAEC8 url(../../img/bgTop.png);
+			}
+			sup{
+				margin-left: 10px;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="body" class="">
+			<header class="mui-bar mui-bar-nav" id="headertitle">
+			</header>
+			<div id="searchBanner" class="">
+				<div id="logo">
+					<img src="../../img/LOGOS.png" />
+					<span id="name">
+						云医继教
+					</span>
+				</div>
+				<div id="searchDiv">
+					<span class="mui-icon mui-icon-search"></span>单位/时间段等
+				</div>
+			</div>
+			<div class="mui-content mui-body">
+				<div class="menuTitle">
+					<img src="../../img/dial.png" />项目中心
+					<div class="morePro">更多项目<span class="mui-icon mui-icon-arrowright"></span></div>
+				</div>
+				<ul id="proList">
+					<!--<li class="homeList_detail" onclick="goDetail(1,1)">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>   项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">2017-07-05<sup>可预约</sup></p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>-->
+				
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				plus.navigator.setStatusBarBackground("#5BAEC8");
+				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("searchBanner");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+//					subpage_style.top = (Math.round(plus.navigator.getStatusbarHeight()) + 44) + 'px';
+
+					var hbg = document.getElementById("headertitle");
+					hbg.style.height = (Math.round(plus.navigator.getStatusbarHeight())) + "px";
+
+				}
+				// 设置系统状态栏样式为浅色文字
+				
+				var htmls = "";
+				handle.getHome(localStorage["token"], function(data) {
+					console.log(JSON.stringify(data));
+					mui.each(data.data, function(index, value) {
+						htmls += '<li class="homeList_detail" onclick="goDetail(' + value.id + ',1)">' +
+							'<div class="homeList_detail_img">' +
+							'<img src="../../img/about1.png" alt="" />' +
+							'</div>' +
+							'<div class="homeList_detail_content">' +
+							'<h3>' + value.title + '</h3>' +
+							'<p class="content_time">' + value.time + '</p>' +
+							'<div class="content_point">' + value.position + '</div>' +
+							'<div class="content_point_ask">负责人:' + value.fz + '</div>' +
+							'</div></li>';
+					})
+					document.getElementById("proList").innerHTML = htmls;
+				})
+			})
+
+			mui("#searchBanner").on("tap", "#searchDiv", function() {
+				mui.openWindow({
+					url: "../win/win_blueCenter.html",
+					id: "lm_search.html",
+					extras: {
+						showurl: "../frm/lm_search.html",
+						title: "搜索中心"
+					}
+				});
+			})
+
+			mui(".menuTitle").on("tap", ".morePro", function() {
+				mui.openWindow({
+					url: "../frm/lm_frm_proAll.html",
+					id: "../frm/lm_frm_proAll.html",
+					extras: {
+
+					}
+				});
+			})
+			//			点击详情
+			function goDetail(id, type) {
+				mui.openWindow({
+					url: "../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/lm_proDetail.html",
+						title: "预约项目详情",
+						Sid: id, //项目的id
+						Type: type //项目是否可以预约，type为1 的可以，0不可以
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

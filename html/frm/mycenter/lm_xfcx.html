@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>学分查询</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_xfcx.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="top">
+				<div class="xfTit">
+					总学时:
+					<div class="xfNum" id="xs"></div>
+				</div>
+
+				<div class="xfTit">
+					总学分:
+					<div class="xfNum" id="xf"></div>
+				</div>
+			</div>
+			<div class="myAll" id="list">
+				<!--<div class="myPoint" id="">
+					<span>
+						Ⅰ类学分:
+					</span>
+					<span class="num">49.9</span>
+				</div>
+				<div class="myPoint" id="">
+					<span>
+						Ⅱ类学分:
+					</span>
+					<span class="num">49.9</span>
+				</div>
+				<div class="myPoint" id="">
+					<span>
+						达标状态:
+					</span>
+					<span class="db num">已达标</span>
+				</div>-->
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				handle.myxf(localStorage['token'], function(data) {
+					console.log("我的学分打印" + JSON.stringify(data))
+					document.getElementById("xs").innerHTML = data.data.sumtime;
+					document.getElementById("xf").innerHTML = data.data.sum;
+					var htmls = ''
+					mui.each(data.data.list, function(index, value) {
+						htmls += '<div class="myPoint" id=""><span>' + value.name + ':</span>' +
+							'<span class="num">' + value.value + '</span></div>';
+					})
+					htmls += '<div class="myPoint" id=""><span>达标状态:</span>' +
+						'<span class="db num">' + data.data.type + '</span></div>';
+					document.getElementById("list").innerHTML = htmls;
+					plus.nativeUI.closeWaiting();
+				});
+
+			})
+		</script>
+	</body>
+
+</html>

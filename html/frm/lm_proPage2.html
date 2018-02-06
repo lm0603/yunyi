@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>全部项目</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/lm_proAll.css" />
+		<style type="text/css">
+			.proAll {
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--待预约项目-->
+				<ul class="proAll" id="list">
+					<!--<li class="homeList_detail">
+						<div class="homeList_detail_img">
+							<img src="../../img/about1.png" alt="" />
+						</div>
+						<div class="homeList_detail_content">
+							<h3>2222项目标题项目标题项目标题项目标题项目标题</h3>
+							<p class="content_time">待公示</p>
+							<div class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</div>
+							<div class="content_point_ask">负责人：杨医生</div>
+						</div>
+					</li>-->
+
+				</ul>
+
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				},
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					},
+					down: {
+						contentrefresh: '正在加载...',
+						callback: pulldownRefresh,
+						auto: true
+					}
+				}
+			});
+			var count = 0;
+			var page = 10;
+			var index = 2;
+			/**
+			 * 上拉和下拉加载具体业务实现
+			 */
+			function pulldownRefresh() {
+				plus.nativeUI.showWaiting("加载中...");
+				setTimeout(function() {
+					/*page（几条），index（几页），type（1:可预约,0:待预约），token*/
+					var data = handle.getPro(page, 1, 0, localStorage["token"]);
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					console.log("待预约1" + JSON.stringify(data))
+					var html = "";
+					mui.each(data.data.list, function(index, value) {
+						html += '<li class="homeList_detail">' +
+							'<div class="homeList_detail_img">' +
+							'<img src="../../img/about1.png" alt="" />' +
+							'</div>' +
+							'<div class="homeList_detail_content">' +
+							'<h3>' + value.name + '</h3>' +
+							'<p class="content_time">'+value.time+'</p>' +
+							'<div class="content_point">待公示</div>' +
+							'</div>' +
+							'</li>'
+					});
+					count = data.data.count;
+//					console.log("count" + count)
+					if(count <= 0 || count == undefined) {
+//						console.log("待预约" + count);
+						$("#list").html('<li class="homeList_detail">暂无相关数据</li>');
+					} else {
+						$("#list").html(html);
+					}
+
+					if(count <= (page * 1)) {
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(true); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+					} else {
+						index = 2;
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().refresh(true); //重置下来控件
+					}
+					plus.nativeUI.closeWaiting();
+				}, 1000);
+			}
+			function pullupRefresh() {
+				if(count <= (page * (index - 1))) {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+				} else {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((count <= (page * (index - 1)))); //参数为true代表没有更多数据了。
+						var data = handle.getPro(page, index, 0, localStorage["token"]);
+						mui.each(data.data.list, function(index, value) {
+							html += '<li class="homeList_detail">' +
+								'<div class="homeList_detail_img">' +
+								'<img src="../../img/about1.png" alt="" />' +
+								'</div>' +
+								'<div class="homeList_detail_content">' +
+								'<h3>' + value.name + '</h3>' +
+								'<p class="content_time">待公示</p>' +
+								'<div class="content_point">' + value.state + '</div>' +
+								'</div>' +
+								'</li>'
+						});
+						count = data.data.count;
+
+						$("#list").append(html);
+
+						//document.getElementById("objlist").insertAdjacentHTML('afterend', html);
+						if(count <= (page * index)) {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+						} else {
+							index++;
+						}
+					}, 1000);
+				}
+			}
+
+			/**
+			 * 上拉和下拉加载具体业务实现  end
+			 */
+			mui('#pullrefresh').on("tap", "li", function() {
+				this.click();
+			});
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+		</script>
+	</body>
+
+</html>

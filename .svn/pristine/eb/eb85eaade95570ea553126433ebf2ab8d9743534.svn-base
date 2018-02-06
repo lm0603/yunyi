@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>成绩解析</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/common.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/zb/lm_cj.css" />
+		<style type="text/css">
+			body {
+				background: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+
+			<div class="cjHeader">
+				<div class="cjHeaderImg">
+					<img src="../../../img/about1.png" />
+				</div>
+				<div class="cjHeaderMsg">
+					<div class="cjName" id="teamname">张某某</div>
+					<div class="cjdetail">
+						<div>用时：<span id="createusername">00:48:32</span></div>
+					</div>
+				</div>
+				<div class="fs">100分</div>
+
+			</div>
+
+			<hr class="lmHr" />
+			<div class="myAll" id="ksFs">
+				<div class="myPoint" id="teamedits">
+					<span>
+					获得学分
+				</span>
+					<span class="mui-icon getJf">5分</span>
+				</div>
+				<div class="myPoint" id="ksTest">
+					<span>
+					试题分析
+				</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint" id="ksAgain">
+					<span>重新考试</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint" id="pj">
+					<span>评价</span>
+					<span class="mui-icon mui-icon-forward"></span>
+				</div>
+				<div class="myPoint myPointlast" id="tishi">
+					提示：答完题记得评价哦 项目才算完成
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			//			试题分析
+			mui("#ksFs").on("tap", "#ksTest", function() {
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					id:"lm_fx.html",
+					extras: {
+						showurl: "../frm/zb/lm_fx.html",
+						title: "试题分析"
+					}
+				});
+			})
+			//			重新考试
+			mui("#ksFs").on("tap", "#ksAgain", function() {
+				//				判断是否符合考试条件,在考核次数以内
+				if(true) {
+					mui.openWindow({
+						url: "../../win/win_ks.html",
+						//					id: "win_whiteLeft.html",
+						extras: {
+							showurl: "../frm/zb/lm_dt.html"
+						}
+					});
+
+				} else {
+					plus.nativeUI.alert("不能再考了哦");
+
+				}
+			})
+			mui("#ksFs").on("tap", "#pj", function() {
+
+					mui.openWindow({
+						url: "../../win/win_blueCenter.html",
+						//					id: "win_whiteLeft.html",
+						extras: {
+							showurl: "../frm/lm_pingjia.html",
+							title : "评价"
+						}
+					});
+			})
+		</script>
+	</body>
+
+</html>

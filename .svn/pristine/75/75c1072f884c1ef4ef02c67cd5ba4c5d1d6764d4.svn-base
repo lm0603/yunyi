@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/zb/lm_dt.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">
+		    	<span id="s">45</span> : 
+		    	<span id="m">00</span>
+		    </h1>
+		</header>
+		<div class="mui-content">
+			<!--循环chu来的mui-card 每一题，name不同-->
+			<div id="tmGroup">
+				<div class="tm">
+					<div class="mui-card-title">
+						【1.选择题】下列关于原因和条件的概念，哪项是错误的？
+					</div>
+					<div class="mui-card">
+						<div class="mui-input-group">
+							<div class="mui-input-row mui-radio mui-left">
+								<label>A.有些疾病，只要有原因的作用便可发生</label>
+								<input name="radio1" type="radio">
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>B.对一种疾病来说是原因，而对另一种疾病则可为条件</label>
+								<input name="radio1" type="radio" checked>
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>C.一种疾病引起的某些变化，可成为另一个疾病发生的条件</label>
+								<input name="radio1" type="radio">
+							</div>
+							<div class="mui-input-row mui-radio mui-left">
+								<label>D.因稳态破坏而发生的内环境紊乱、生命活动障碍不可能是引起某些疾病的“危险因素”</label>
+								<input name="radio1" type="radio" checked>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="bottomBtn">
+				<button type="button" id="buyBtn" class="mui-btn mui-btn-blue mui-btn-block">立即交卷</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var htmls = "";
+			for(var i = 1; i <= 100; i++) {
+				htmls += '<div class="tm">' +
+					'<div class="mui-card-title">' +
+					'【' + i + '.选择题】关于人的五脏有那五脏？' +
+					'</div>' +
+					'<div class="mui-card">' +
+					'<div class="mui-input-group">' +
+					'<div class="mui-input-row mui-radio mui-left">' +
+					'<label>A.' + i + '心脏</label>' +
+					'<input name="radio' + i + '" type="radio">' +
+					'</div>' +
+					'<div class="mui-input-row mui-radio mui-left">' +
+					'<label>B.' + i + '肾脏</label>' +
+					'<input name="radio' + i + '" type="radio">' +
+					'</div>' +
+					'<div class="mui-input-row mui-radio mui-left">' +
+					'<label>C.' + i + '脾脏</label>' +
+					'<input name="radio' + i + '" type="radio">' +
+					'</div>' +
+					'<div class="mui-input-row mui-radio mui-left">' +
+					'<label>D.' + i + '脾脏</label>' +
+					'<input name="radio' + i + '" type="radio">' +
+					'</div></div></div></div>'
+			}
+			$("#tmGroup").html(htmls);
+
+			window.onload = function() {
+				var djs = setInterval(function() {
+					var m = Number($("#m").html());
+					var s = Number($("#s").html());
+					//							console.log(m)
+					m--; //秒数减一
+					//判断当秒数变为负并且分大于0的时候，m=59，分减一
+					if(m < 0 && s >= 0) {
+						m = 59;
+						s--;
+						$("#s").html(s);
+					}
+					//					分秒同时小于等于0,清除及时,并提示时间到以及处理交卷的函数
+					if(m <= 0 && s <= 0) {
+						clearInterval(djs);
+						plus.nativeUI.toast("考试时间到,2s后自动交卷");
+						//						交卷的函数
+
+						jiaojuan();
+					}
+
+					//					当秒小于10是,前面加0
+					if(m < 10) {
+						$("#m").html("0" + m);
+					} else {
+						$("#m").html(m);
+					}
+
+				}, 1000)
+			}
+			mui.back = function (){
+				plus.nativeUI.toast("需要交卷才能进行其他操作")
+			}
+			//			点击交卷
+			mui(".bottomBtn").on("tap", "button", function() {
+				// 弹出提示信息对话框
+				plus.nativeUI.confirm("请问您是否确定交卷?", function(e) {
+					console.log("Close confirm: " + e.index);
+					if(e.index == 0) {
+						jiaojuan();
+					}
+				}, "提交试卷", ["确定", "取消"]);
+			})
+
+			function jiaojuan() {
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					//					id: "win_whiteLeft.html",
+					extras: {
+						showurl: "../frm/zb/lm_cj.html",
+						title: "考试成绩"
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

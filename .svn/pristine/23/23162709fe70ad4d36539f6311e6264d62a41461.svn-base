@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的学会
+		</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myxh.css" />
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav" id="headertitle">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a id="menu" class="mui-action-menu mui-icon mui-icon-plus mui-pull-right"></a>
+			<h1 class="mui-title">我的学会</h1>
+		</header>
+		<div class="mui-content"></div>
+
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			//启用双击监听
+			var stylec ={
+				top: '70px',
+				bottom: '0px',
+			}
+			mui.init({
+				gestureConfig: {
+					doubletap: true
+				},
+				subpages: [{
+					url: 'lm_myxhPage.html',
+					id: 'lm_myxhPage.html',
+					styles: stylec
+				}]
+			});
+			var contentWebview = null;
+			document.querySelector('header').addEventListener('doubletap', function() {
+				if(contentWebview == null) {
+					contentWebview = plus.webview.currentWebview().children()[0];
+				}
+				contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
+			});
+			mui.plusReady(function() {
+//				console.log("gao" + plus.webview.currentWebview().id)
+				plus.nativeUI.closeWaiting();
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("headertitle");
+					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+					stylec.top = (Math.round(plus.navigator.getStatusbarHeight()) + 45) + 'px';
+				}
+			})
+			mui("header").on("tap", "#menu", function() {
+				mui.openWindow({
+					url: "../../win/win_blueCenter.html",
+					//					id: dataHref,
+					extras: {
+						showurl: "../frm/mycenter/lm_myxhAll.html",
+						title: "添加学会"
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

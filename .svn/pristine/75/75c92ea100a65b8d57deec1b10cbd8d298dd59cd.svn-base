@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/lm_proDetail.css" />
+		<style type="text/css">
+			#yuyue>button {
+				width: calc(50% - 0.5px);
+				float: left;
+				border-radius: 0;
+			}
+			
+			#yuyue>button:first-of-type {
+				border-radius: 10px 0 0 10px;
+				border-right: 1px solid #fff;
+			}
+			
+			#yuyue>button:last-of-type {
+				border-radius: 0 10px 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<hr class="lmHr" />
+			<div>
+				<ul id="proDetail">
+					<li>
+						<div class="liLeft">项目名称</div>
+						<div class="liRight">{{prodata.name}}</div>
+					</li>
+					<li>
+						<div class="liLeft">项目编号</div>
+						<div class="liRight">{{prodata.code}}</div>
+					</li>
+					<li>
+						<div class="liLeft">所属学科</div>
+						<div class="liRight">{{prodata.xk}}</div>
+					</li>
+					<li>
+						<div class="liLeft">学时</div>
+						<div class="liRight">{{prodata.xs}}</div>
+					</li>
+					<li>
+						<div class="liLeft">学分</div>
+						<div class="liRight">{{prodata.xf}}</div>
+					</li>
+					<li>
+						<div class="liLeft">学分类别</div>
+						<div class="liRight">{{prodata.xflb}}</div>
+					</li>
+					<li>
+						<div class="liLeft">项目开展时间</div>
+						<div class="liRight">{{prodata.dotime}}</div>
+					</li>
+					<li>
+						<div class="liLeft">项目结束时间</div>
+						<div class="liRight">{{prodata.doendtime}}</div>
+					</li>
+					<li>
+						<div class="liLeft">预约截至时间</div>
+						<div class="liRight liTs">{{prodata.yyjz}}</div>
+					</li>
+					<li>
+						<div class="liLeft">授课地点</div>
+						<div class="liRight">{{prodata.skdd}}</div>
+					</li>
+					<!--<li>
+						<div class="liLeft">项目负责人</div>
+						<div class="liRight">{{prodata.xmfzr}}</div>
+					</li>-->
+					<li>
+						<div class="liLeft">主讲教师</div>
+						<div class="liRight">{{prodata.zjjs}}</div>
+					</li>
+					<li>
+						<div class="liLeft">主办单位</div>
+						<div class="liRight">{{prodata.zbdw}}</div>
+					</li>
+					<li>
+						<div class="liLeft">单位联系电话</div>
+						<div class="liRight">{{prodata.dwlxdh}}</div>
+					</li>
+					<li>
+						<div class="liLeft">活动形式</div>
+						<div class="liRight">{{prodata.hdxs}}</div>
+					</li>
+					<li>
+						<div class="liLeft">考核方式</div>
+						<div class="liRight">{{prodata.khfs}}</div>
+					</li>
+					<li>
+						<div class="liLeft">简介</div>
+						<div class="liRight">{{prodata.jj}}</div>
+					</li>
+					<li>
+						<div class="liLeft">内容描述</div>
+						<div class="liRight">{{prodata.texts}}</div>
+					</li>
+					<li>
+						<div class="liLeft">备注</div>
+						<div class="liRight">{{prodata.note}}</div>
+					</li>
+				</ul>
+			</div>
+			<div id="yuyue">
+				<button type="button" id="dati" class="mui-btn mui-btn-blue" data-type="答题">答题<!--data-type判断是否考过--> </button>
+				<button type="button" id="pingjia" class="mui-btn mui-btn-blue">评价 </button>
+			</div>
+			<div id="mengban">
+				<ul class="dt">
+					<li>
+						<div id="close">
+							X
+						</div>
+					</li>
+					<li>
+						<div class="liF">考试类型</div>
+						<div class="liR">项目考试</div>
+					</li>
+					<li>
+						<div class="liF">考试标准</div>
+						<div class="liR">100题，45分钟</div>
+					</li>
+					<li>
+						<div class="liF">合格标准</div>
+						<div class="liR">45分及格</div>
+					</li>
+					<li class="anniu">
+						<p>直播项目未通过可在考核期限内进行补考</p>
+						<button id="ks">
+									开始考试
+						</button>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/vue.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			var newvue = new Vue({
+				el: ".mui-content",
+				data: {
+					prodata: {
+
+					},
+					id: 0
+				}
+			})
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				var self = plus.webview.currentWebview();
+				newvue.id = self.Sid;
+				console.log("id" + self.Sid)
+				handle.getProde(localStorage['token'], self.Sid, function(data) {
+					newvue.prodata = data.data;
+					localStorage['pro'] = JSON.stringify(newvue.prodata);
+					plus.nativeUI.closeWaiting();
+				});
+
+				mui("#yuyue").on("tap", "#dati", function() {
+					if($(this).attr("data-type") == "答题") {
+						$("#mengban").show();
+					} else if($(this).attr("data-type") == "试题分析") {
+						//					mui.openWindow({
+						//						url: "../../win/win_blueLeft.html",
+						//						id: "lm_fx.html",
+						//						extras: {
+						//							showurl: "../frm/zb/lm_fx.html",
+						//							title: "试题分析"
+						//						}
+						//					});
+					}
+
+				})
+				mui("#yuyue").on("tap", "#pingjia", function() {
+					mui.openWindow({
+						url: "../../win/win_blueCenter.html",
+						//					id: "pingjia",
+						extras: {
+							showurl: "../frm/lm_pingjia.html",
+							title: "评价",
+							Sid: self.Sid,
+							Type: self.Type,
+							param: newvue.prodata
+
+						}
+					});
+				})
+				mui(".dt").on("tap", "#close", function() {
+					$("#mengban").hide();
+				})
+				mui("body").on("tap", "#mengban:not(ul)", function() {
+					$("#mengban").hide();
+				})
+
+				mui(".anniu").on("tap", "#ks", function() {
+					console.log(JSON.stringify(newvue.prodata))
+					//				localStorage['pro'] = JSON.stringify(newvue.prodata);
+					mui.openWindow({
+						url: "../zb/lm_dt.html",
+						id: "lm_dt.html",
+						extras: {
+							Sid: newvue.id,
+							Type: 1,
+							param: newvue.prodata
+						}
+					});
+				})
+			})
+		</script>
+	</body>
+
+</html>

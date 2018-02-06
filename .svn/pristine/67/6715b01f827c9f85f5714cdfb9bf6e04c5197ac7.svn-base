@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+}
+
+.lmHr {
+	border: none;
+	height: 10px;
+	background-color: #F7F7F7;
+}
+
+li {
+	list-style: none;
+}
+
+header.mui-bar {
+	background-color: #71C7D5;
+}
+
+header>a.mui-action-back {
+	color: white;
+}
+
+header>.mui-title {
+	color: white;
+}
+
+
+/*具体内容*/
+
+.homeList_detail {
+	overflow: hidden;
+	border-bottom: 1px solid #DBDBDB;
+	padding: 1vh 2vw;
+	background-color: #FFFFFF;
+}
+
+.homeListPoint_point_notShow {
+	display: none;
+}
+
+.homeList_detail_img {
+	width: 30vw;
+	height: 6rem;
+	overflow: hidden;
+	float: left;
+	margin: 0 3vw 1vh 2vw;
+	border-radius: 5px;
+	/*background-color: #E3E3E3;*/
+}
+
+.homeList_detail_img img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.homeList_detail_content {
+	padding: 0 3vw;
+}
+
+.homeList_detail_content div {
+	font-size: 1rem;
+	line-height: 1.22rem;
+}
+
+.homeList_detail_content h3 {
+	font-weight: normal;
+	font-size: 1.2rem;
+}
+
+h3,
+.h3,
+.content_point {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lp {
+	word-break: break-all;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	/** 对象作为伸缩盒子模型显示 **/
+	-webkit-box-orient: vertical;
+	/** 设置或检索伸缩盒对象的子元素的排列方式 **/
+	-webkit-line-clamp: 2;
+	/** 显示的行数 **/
+	overflow: hidden;
+	/** 隐藏超出的内容 **/
+}
+
+.content_point {
+	color: #6C6C6C;
+	margin: 5px 0;
+}
+
+.content_point_ask {
+	color: #6C6C6C;
+}
+
+@font-face {
+	font-family: myIcon;
+	src: url(../fonts/iconfont.ttf);
+}
+
+.myIcon {
+	font-family: myIcon;
+	font-size: 1.2rem;
+	margin-right: 5px;
+}
+@font-face {
+	font-family: homefont;
+	src: url(../fonts/homefont/iconfont.ttf);
+}
+
+.homefont {
+	font-family: homefont;
+}
+
+
+/*蒙版的样式*/
+
+.dt {
+	width: 90%;
+	margin: 100px auto 0;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #fff;
+	position: relative;
+}
+
+.dt>li {
+	overflow: hidden;
+}
+
+.dt>li>div {}
+
+.liF {
+	width: 45%;
+	float: left;
+	padding: 10px 0 0 15%;
+}
+
+.liR {
+	width: 55%;
+	float: left;
+	padding: 10px 5%;
+}
+
+.anniu {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#ks {
+	width: 80%;
+	border-radius: 10px;
+	background-color: rgb(113, 199, 213);
+	color: white;
+	height: 40px;
+	margin-top: 15px;
+}
+
+#mengban {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	display: none;
+}
+
+#close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: -10px;
+	right: -10px;
+	border-radius: 50%;
+	background-color: white;
+	color: #ccc;
+	text-align: center;
+	line-height: 20px;
+}

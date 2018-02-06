@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>点播详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/zb/lm_zbDetail.css" />
+		<style type="text/css">
+			.noProblem {
+				width: 60%;
+				margin: 100px auto 0;
+			}
+			
+			.noProblem>img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="video">
+				<div id="first">
+					<img src="../../../img/bofang.png" alt="" />
+				</div>
+				<video src="http://brandtrigram.com/Public/uploads/video/2017-10-17/59e583414f087.mp4"></video>
+			</div>
+			<div>
+				<ul id="videoMenu">
+					<li class="choose">介绍</li>
+					<li>答题</li>
+					<li>评价</li>
+				</ul>
+			</div>
+			<div id="">
+				<ul id="videoDetail">
+					<li style="display: ;">
+						<!--介绍-->
+						<ul class="js">
+							<li>
+								<div id="kcName">课程标题</div>
+								<div class="xxspNum">
+									<span class="mui-icon mui-icon-eye"></span>9999观看
+								</div>
+							</li>
+							<li class="xxspprice">
+								￥ 199
+							</li>
+							<li>
+								<div class="whoCan">适用人群</div>
+								<div class="whoDetail">关于某某科的某某基础理论 要准备靠某某证书的人...</div>
+							</li>
+						</ul>
+						<hr class="lmHr" />
+						<div class="kcdetail">
+							<div class="whoCan">直播介绍：</div>
+							<div>
+								直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播 直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播 直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内容介绍直播内 容介绍直播内容介绍直播内容介绍直播内容介绍直播
+							</div>
+							<div id="detailMore">
+								查看更多
+							</div>
+						</div>
+						<hr class="lmHr" />
+						<ul class="kcTeacher">
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+							<li>
+								<div class="tHeaderImg">
+									<img src="../../../img/about1.png" />
+								</div>
+								<div class="tHeaderDetail">
+									<div class="tName">秋叶</div>
+									<div class="tZhiwu">某某某主任医师、某某科科室科长</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li style="display: none;">
+						<!--答题-->
+						<!--没有题-->
+						<div class="noProblem" style="display: none;">
+							<img src="../../../img/no.png" /> 当前直播尚未结束无法答题请等讲师发题
+						</div>
+						<!--有题-->
+						<ul class="dt">
+							<li>
+								<div class="liF">考试项目</div>
+								<div class="liR">直播项目</div>
+							</li>
+							<li>
+								<div class="liF">考试标准</div>
+								<div class="liR">100题，60分钟</div>
+							</li>
+							<li>
+								<div class="liF">合格标准</div>
+								<div class="liR">60分及格</div>
+							</li>
+							<li class="anniu">
+								<p>直播项目未通过可在考核期限内进行补考</p>
+								<!--<button id="ks">
+									开始考试
+								</button>-->
+							</li>
+						</ul>
+
+					</li>
+					<li style="display: none;">
+						<!--评价-->
+						<!--不可评价-->
+
+						<div class="noProblem">
+							<img src="../../../img/no.png" />
+							<p>当前直播尚未结束无法评价</p>
+						</div>
+						<!--可评价-->
+						<div class="anniu" style="display: none;">
+							<p>答题合格及评价完成才可获取积分</p>
+							<button id="pj">
+									去评价
+							</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="bottomBtn" style="display: ;">
+				<button type="button" id="buyBtn" class="mui-btn mui-btn-blue mui-btn-block">开始答题</button>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var price = '';
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				console.log(self.Sid);
+				//				console.log(self.Num);
+				price = self.Num;
+				$(".xxspprice").eq(0).html("￥ " + self.Num)
+
+			});
+
+			$("#video,#first").click(function() {
+				var state = $(this).find("video");
+				var first = $(this).find("#first");
+				if(state.get(0).paused) {
+					state.get(0).play();
+					first.hide();
+				} else {
+					state.get(0).pause();
+					first.show();
+				}
+
+			})
+			//			点击介绍/目录的js
+			$("#videoMenu>li").click(function() {
+				//				选中添加类名
+				$(this).addClass("choose").siblings().removeClass("choose");
+				//				显示对应区域
+				$("#videoDetail>li").hide().eq($(this).index()).show();
+			});
+			//			点击查看更多
+			$("#detailMore").click(function() {
+				$(this).hide();
+				$(".kcdetail").css("height", "auto");
+			})
+			//			点击立即观看
+
+			mui(".bottomBtn").on("tap", "#buyBtn", function() {
+				//				支付成你功后,返回提示信息
+
+				$("#videoDetail>li").hide().eq(1).show();
+				setTimeout(function() {
+					var tsMsg = '观看直播之前你需要完成支付并 \n上传本人真实照片';
+					plus.nativeUI.confirm(tsMsg, function(e) {
+						if(e.index == 0) {
+							console.log("确定"); //执行对应的购买流程
+							mui.openWindow({
+								url: "../../win/win_whiteLeft.html",
+								//					id: "win_whiteLeft.html",
+								extras: {
+									showurl: "../frm/lm_buyThis.html",
+									title: "收银台",
+									Num: price //项目的id
+								}
+							});
+
+						}
+					}, "看直播", ["确定", "取消"]);
+
+				}, 1000)
+
+			})
+
+			mui(".anniu").on("tap", "#ks", function() {
+				mui.openWindow({
+					url: "../../frm/zb/lm_dt.html",
+					id: "lm_dt.html",
+					extras: {
+						showurl: ""
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

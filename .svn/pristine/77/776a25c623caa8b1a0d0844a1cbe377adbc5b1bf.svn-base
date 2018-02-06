@@ -1,0 +1,58 @@
+html,.mui-content{
+	background-color: #FAFAFA;
+	/*min-height: 100vh;*/
+}
+.mui-content{
+	padding-bottom: 60px;
+}
+#xxk{
+	width: 90%;
+	height: 150px;
+	margin: 40px auto;
+	overflow: hidden;
+	border-radius:10px ;
+}
+#xxk>img{
+	width: 100%;
+	min-height: 150px;
+}
+#xxkDetail{
+	padding: 0px 5% 10px;
+}
+#xxkDetail li{
+	line-height: 1.6rem;
+	margin: 40px 0;
+	overflow: hidden;
+}
+#xxkDetail li>span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-top: calc(0.8rem - 10px);
+	border-radius: 50%;
+	background-color: rgb(113, 199, 213);
+}
+
+#xxkDetail li>div{
+	display: inline-block;
+	width: calc(100% - 30px) ;
+	float: right;
+}
+#buyBtn{
+	width: 90%;
+	margin: 10px auto;
+	height: 40px;
+	padding: 0;
+	border-radius:20px;
+	background-color: #FE4A48;
+	border: none;outline: none;
+}
+.bottomBtn{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color:  #FAFAFA;
+}

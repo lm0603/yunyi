@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/lm_login.css" />
+	</head>
+
+	<body>
+
+		<div id="body" class="mui-content">
+			<img src="../../img/logo.png" id="logo" />
+			<div class="login">
+				<div class="loginRow">
+					<img src="../../img/user.png" />
+					<div id="">
+						<input type="" name="" id="uName" placeholder="请输入您的姓名" value="赵冬" />
+					</div>
+				</div>
+				<div class="loginRow">
+					<img src="../../img/tel.png" />
+					<div>
+						<input type="tel" maxlength="11" name="" id="uTel" placeholder="请输入您的手机号" value="13258193268" />
+					</div>
+				</div>
+				<div class="loginRow">
+					<img src="../../img/code.png" />
+					<div>
+						<input type="" name="" id="uCode" placeholder="请输入您获得的验证码" value="1234" />
+					</div><span id="smsCode">点击获取</span>
+				</div>
+				<div class="loginRow">
+					<img src="../../img/id.png" />
+					<div> <input type="" maxlength="18" name="" id="uId" placeholder="请输入您的身份证号码" value="510824199408177332" />
+					</div>
+				</div>
+				<div class="loginRow">
+					<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="login">登录</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/server.js"></script>
+		<script type="text/javascript">
+			var regCheck = {
+				checkMobile: function(str) {
+					var re = /^1\d{10}$/;
+					if(!re.test(str)) {
+						plus.nativeUI.toast("请输入正确的电话号码");
+						return false;
+					} else {
+						return true;
+					}
+				},
+				checkId: function(str) {
+					var regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+					if(!regIdNo.test(str)) {
+						plus.nativeUI.toast("请输入正确的身份证号码");
+						return false;
+					} else {
+						return true;
+					}
+				}
+			}
+			mui.init();
+			mui.plusReady(function() {
+				plus.nativeUI.closeWaiting();
+				plus.navigator.setStatusBarBackground("#0D4E71");
+
+				//				沉浸式导航  没有设置成功
+				if(plus.navigator.isImmersedStatusbar()) {
+					var headerhei = document.getElementById("body");
+					//					headerhei.style.height = (Math.round(plus.navigator.getStatusbarHeight()) + Math.round(headerhei.offsetHeight)) + "px";
+					//					headerhei.style.paddingTop = plus.navigator.getStatusbarHeight() + "px";
+
+					document.getElementById("body").style.height = window.screen.height + "px";
+					document.getElementById("body").style.width = window.screen.width + "px";
+				} else {
+					document.getElementById("body").style.height = window.screen.height - plus.navigator.getStatusbarHeight() + "px";
+					document.getElementById("body").style.width = window.screen.width + "px";
+				}
+
+			})
+
+			var time = 60;
+			//			点击获取验证码
+			mui(".loginRow").on("tap", "#smsCode", function() {
+				if(time !== 60) {
+					plus.nativeUI.toast("短信发送中，可能会有一点延迟哦！")
+					return;
+				}
+				var timeGo = setInterval(function() {
+					time--;
+					document.getElementById("smsCode").innerHTML = time + "秒后重试"
+					if(time <= 0) {
+						time = 60;
+						document.getElementById("smsCode").innerHTML = "重新获取";
+						clearInterval(timeGo);
+					}
+				}, 1000);
+			})
+			//			点击登录
+			mui(".loginRow").on("tap", "#login", function() {
+
+				var uName = document.getElementById("uName").value;
+				if(uName.length <= 0) {
+					plus.nativeUI.toast("姓名不能为空哦");
+					return;
+				}
+				var uTel = document.getElementById("uTel").value;
+				if(uTel.length <= 0) {
+					plus.nativeUI.toast("电话不能为空哦");
+					return;
+				}
+				var uCode = document.getElementById("uCode").value;
+				if(uCode.length <= 0) {
+					plus.nativeUI.toast("验证码不能为空哦");
+					return;
+				}
+
+				var uId = document.getElementById("uId").value;
+				if(uId.length <= 0) {
+					plus.nativeUI.toast("身份证号码不能为空哦");
+					return;
+				}
+				if(regCheck.checkMobile(uTel)) {
+					if(regCheck.checkId(uId)) {
+						var loginData = {
+							uName: uName,
+							uTel: uTel,
+							uCode: uCode,
+							uId: uId
+						}
+						plus.nativeUI.showWaiting("登录中...");
+						handle.login(loginData);
+						
+						//						可以登录的操作了
+						//				判断登录是都成功
+						//				if(true) {
+						//									mui.openWindow({
+						//										url:"../win/win_home.html",
+						//										id:"../win/win_home.html"
+						//									})
+						//				}else{
+						//				plus.nativeUI.alert("信息填写错误，请核对后重新输入！", function() {}, "登录失败", "确定");
+						//				}
+					} else {
+						plus.nativeUI.toast("请输入正确的身份证号码哦")
+					}
+				} else {
+					plus.nativeUI.toast("请输入正确的手机号哦")
+				}
+
+			})
+
+			document.getElementById("uTel").addEventListener('blur', function() {
+				regCheck.checkMobile(this.value);
+			});
+			document.getElementById("uId").addEventListener('blur', function() {
+				regCheck.checkId(this.value);
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的考试</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myPro.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myks.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--学习卡-->
+				<ul id="">
+
+					<li class="proAll" style="display: ;">
+						<ul id="list">
+							<!--<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>-->
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/server.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				},
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					},
+					down: {
+						contentrefresh: '正在加载...',
+						callback: pulldownRefresh,
+						auto: true
+					}
+				}
+			});
+			var count = 0;
+			var page = 10;
+			var index = 2;
+			/**
+			 * 上拉和下拉加载具体业务实现
+			 * com: "mykaoshi",
+				token: token,
+				type:type,
+				index:index,
+				page:page
+			 */
+			function pulldownRefresh() {
+				plus.nativeUI.showWaiting("请求中...");
+				setTimeout(function() {
+					var data = handle.myks(localStorage["token"], 3, 1, page);
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					console.log("考试数据" + JSON.stringify(data))
+					var htmls = "";
+					mui.each(data.data.list, function(index, value) {
+						htmls += '<li>' +
+							'<div class="lp">【' + value.type + '】' + value.name + '</div>';
+						if(value.type === "项目考试") {
+
+							if(value.fenshu && value.xuefen) {
+								htmls += '<div class="fs">分数: <span>' + value.fenshu + '</span> 学分: <span>' + value.xuefen + '</span></div>';
+							} else if(value.fenshu) {
+								htmls += '<div class="fs"><span>考核未达标</span></div>';
+							}
+
+						} else {
+							if(value.fenshu >= 60) {
+								htmls += '<div class="fs">分数: <span>' + value.fenshu + '</span></div>';
+
+							} else {
+								htmls += '<div class="fs"><span>考核未达标</span></div>';
+							}
+						}
+						htmls += '<p>' + value.time + '</p>' +
+							'</li>';
+					});
+					count = data.data.count;
+					if(count <= 0) {
+							$("#list").html('<li>暂无相关数据</li>');
+
+						} else {
+							$("#list").html(htmls);
+						}
+					plus.nativeUI.closeWaiting();
+					if(count <= (page * 1)) {
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(true); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+					} else {
+						index = 2;
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false); //参数为true代表没有更多数据了。
+						mui('#pullrefresh').pullRefresh().refresh(true); //重置下来控件
+					}
+				}, 1000);
+			}
+
+			function pullupRefresh() {
+
+				if(count <= (page * (index - 1))) {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+				} else {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((count <= (page * (index - 1)))); //参数为true代表没有更多数据了。
+
+						var data = handle.myks(localStorage["token"], 3, index, page);
+						//服务器返回响应，根据响应结果，分析是否登录成功；
+						var htmls = "";
+						mui.each(data.data.list, function(index, value) {
+							htmls += '<li>' +
+								'<div class="lp">【' + value.type + '】' + value.name + '</div>';
+							if(value.type === "项目考试") {
+
+								if(value.fenshu && value.xuefen) {
+									htmls += '<div class="fs">分数: <span>' + value.fenshu + '</span> 学分: <span>' + value.xuefen + '</span></div>';
+								} else if(value.fenshu) {
+									htmls += '<div class="fs"><span>考核未达标</span></div>';
+								}
+
+							} else {
+								if(value.fenshu >= 60) {
+									htmls += '<div class="fs">分数: <span>' + value.fenshu + '</span></div>';
+
+								} else {
+									htmls += '<div class="fs"><span>考核未达标</span></div>';
+
+								}
+							}
+							htmls += '<p>' + value.time + '</p>' +
+								'</li>';
+						});
+						count = data.data.count;
+						$("#list").append(htmls);
+
+						//document.getElementById("objlist").insertAdjacentHTML('afterend', html);
+						if(count <= (page * index)) {
+							mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+						} else {
+							index++;
+						}
+					}, 1000);
+				}
+			}
+
+			/**
+			 * 上拉和下拉加载具体业务实现  end
+			 */
+			mui('#pullrefresh').on("tap", "li", function() {
+				this.click();
+			});
+
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+			mui(".proAll").on("tap", ".dati", function() {
+				$("#mengban").show();
+			})
+
+			mui(".dt").on("tap", "#close", function() {
+				$("#mengban").hide();
+			})
+			//			mui.back = function(){
+			//				mui.openWindow({
+			//					url: "../../win/win_home.html",
+			//					//					id: "win_whiteLeft.html",
+			//					extras: {
+			//					}
+			//				});
+			//			}
+		</script>
+	</body>
+
+</html>

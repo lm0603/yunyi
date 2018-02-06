@@ -1,0 +1,50 @@
+.mui-content{
+	padding-bottom: 60px;
+}
+#proDetail{
+	padding: 0 2%;
+	background-color: #fff;
+	
+}
+#proDetail>li{
+	overflow: hidden;
+	line-height: 30px;
+	padding: 10px 0;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+#proDetail>li>div{
+	float: left;
+	font-weight: normal;
+	font-size: 0.9rem;
+	}
+.liLeft{
+	width: 30%;
+	
+}
+.liRight{
+	width: 70%;	
+	
+	color: rgb(34, 34, 34);
+}
+.liTs{
+	color: red;
+}
+#yuyue{
+	width: 100%;
+	background-color: #FFF;
+	height: 60px;
+	padding: 10px 5%;
+	margin: auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+#yuyue>button{
+	height: 40px;
+	padding: 0;
+	line-height: 40px;
+	border-radius:10px ;
+	background-color: #71C7D5;
+	border: none;
+}

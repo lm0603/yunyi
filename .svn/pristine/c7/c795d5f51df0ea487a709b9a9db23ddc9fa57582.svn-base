@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的考试</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myPro.css" />
+		；<link rel="stylesheet" href="../../../css/mycenter/lm_myks.css" />
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul id="menu">
+				<li class="menuActive">
+					项目考试<br />
+					<span></span>
+				</li>
+				<li>
+					定期考试<br />
+					<span style="display: none;"></span>
+				</li>
+				<li>
+					历史记录<br />
+					<span style="display: none;"></span>
+				</li>
+			</ul>
+			<div>
+				<!--学习卡-->
+				<ul id="">
+					<li class="proAll" style="display: ;">
+						<ul>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称项目考试名称项目考试名称项目考试名称项目考试名称项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+						
+						
+						
+						
+						
+						</ul>
+					</li>
+					<li class="proAll" style="display: none;">
+						<ul>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+							<li>
+								<div class="lp">
+									【直播项目】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="dati">答题</div>
+								<p>2017-09-09</p>
+							</li>
+						
+						
+						
+						
+						
+						</ul>
+					</li>
+				
+					<li class="proAll" style="display: none;">
+						<ul>
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+							<li>
+								<div class="lp">
+									【项目考试】项目考试名称,关于内科的某事件，你收否知道。反正我不知道
+								</div>
+								<div class="fs">分数: <span>90</span> 学分: <span>5</span></div>
+								<p>2017-09-09</p>
+							</li>
+						
+						
+						
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="mengban">
+				<ul class="dt">
+					<li>	
+						<div id="close">
+							X
+						</div></li>
+					<li>
+						<div class="liF">考试项目</div>
+						<div class="liR">直播项目</div>
+					</li>
+					<li>
+						<div class="liF">考试标准</div>
+						<div class="liR">100题，60分钟</div>
+					</li>
+					<li>
+						<div class="liF">合格标准</div>
+						<div class="liR">60分及格</div>
+					</li>
+					<li class="anniu">
+						<p>直播项目未通过可在考核期限内进行补考</p>
+						<button id="ks">
+									开始考试
+					</button>
+					
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script>
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+			mui(".proAll").on("tap", ".dati", function() {
+				$("#mengban").show();
+			})
+			
+			mui(".dt").on("tap", "#close", function() {
+				$("#mengban").hide();
+			})
+		</script>
+	</body>
+
+</html>

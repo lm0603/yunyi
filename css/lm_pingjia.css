@@ -1,0 +1,127 @@
+.mui-content {
+	background-color: #fff;
+}
+
+#pj>li {
+	overflow: hidden;
+	padding: 4px 3%;
+	font-size: 0.8rem;
+	line-height: 1.4rem;
+}
+
+#pj>li>div {
+	float: left;
+	height: 1.4rem;
+}
+
+#pj>li:first-of-type {
+	font-size: 1rem;
+}
+
+#pj .liLeft {
+	width: 40%;
+}
+
+.liRight {
+	height: 1.4rem;
+	width: 60%;
+	/*background: #fff url(../img/start.png) bottom;*/
+	background-size: 100% auto;
+}
+
+.liRight li {
+	width: 20%;
+	float: left;
+	height: 1.4rem;
+}
+
+#pj>li:last-of-type .liLeft {
+	width: 100%;
+	background: none;
+}
+
+#pj>li>div.pjPoint {
+	height: auto;
+	text-align: center;
+	padding: 10px;
+}
+
+.pjPoint>div {
+	display: inline-block;
+	padding: 0px 10px;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	border-radius: 0.8rem;
+	border: 1px solid #ccc;
+	color: #ccc;
+	margin: 5px;
+}
+
+.pjPoint>div.active {
+	color: white;
+	background-color: #FFCD41;
+	border: 1px solid #FFCD41;
+}
+
+.zhpj {
+	text-align: center;
+	position: relative;
+}
+
+.zhpj>span {
+	width: 35%;
+}
+
+.zhpj>span:nth-child(2) {
+	width: 30%;
+	line-height: 1rem;
+}
+
+.zhpj>span:nth-child(1),
+.zhpj>span:nth-child(3) {
+	display: inline-block;
+	position: absolute;
+	top: 0.5rem;
+	border-bottom: 1px solid #ccc;
+}
+
+.zhpj>span:nth-child(1) {
+	left: 3%;
+}
+
+.zhpj>span:nth-child(3) {
+	right: 3%;
+}
+.zonghe{
+	margin: 10px auto;
+}
+#jianyi{
+	width: 94%;
+	margin: auto;
+	height: 100px;
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+}
+#jianyi>textarea{
+	border: none;
+	outline: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+#yuyue{
+	width: 100%;
+	background-color: #FFF;
+	height: 60px;
+	padding: 10px 5%;
+	margin: auto;
+}
+#yuyue>button{
+	height: 40px;
+	padding: 0;
+	line-height: 40px;
+	border-radius:10px ;
+	background-color: #FFCD41;
+	border: none;
+}

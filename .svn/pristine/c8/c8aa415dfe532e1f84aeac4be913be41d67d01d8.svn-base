@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			//			判断是否登录,登录直接进主页,没有进登录
+			mui.plusReady(function() {
+				console.log(localStorage["islogin"])
+				if(localStorage["islogin"] === "true") {
+					var _home = plus.webview.create("html/win/win_home.html", "html/win/win_home.html", {
+						scrollIndicator: 'none'
+					});
+				} else {
+					var _home = plus.webview.create("html/frm/lm_login.html", "html/frm/lm_login.html", {
+						scrollIndicator: 'none'
+					});
+				}
+				plus.nativeUI.showWaiting();
+				plus.webview.show(_home);
+				var _nowview = plus.webview.currentWebview();
+				plus.webview.close(_nowview);
+
+//				//模拟数据
+//				var userdata = {
+//					name: "赵冬",
+//					caridNo: 510824199408171234,
+//					phone: 13258193268,
+//					gender: "女",
+//					ks: "网道技术部",
+//					zylb: 1,
+//					zc: "",
+//					dw: "网道科技",
+//					xk: "",
+//					cszy: 7,
+//					byzy: 7,
+//					bydx: "ceshi",
+//					byxl: 5,
+//					zgxl: 5,
+//					zczsNo: 534543,
+//					zgzsNo: 34242565657,
+//					state: null,
+//					loginTime: "2017年11月15日 02:42:54",
+//					avatar: "http://192.168.1.15:888/FileUploads/UserTop/2017-11-09/201711090247288038.jpg"
+//				}
+////
+//				localStorage["userdata"] = JSON.stringify(userdata)
+//				localStorage["token"] = '193F1CC792269682B44416726C1D918E0625273B0AF957D5'
+//			
+			})
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

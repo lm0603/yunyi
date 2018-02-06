@@ -1,0 +1,58 @@
+.mui-title>input {
+	width: 70%;
+	margin: 0;
+	padding: 0 2%;
+	height: 30px;
+	border-radius: 15px;
+	font-size: 0.8rem;
+}
+
+header.mui-bar {
+	height: 60px;
+	box-shadow: none;
+}
+
+header.mui-bar>a.mui-action-back {
+	color: white;
+	/*padding-top: 20px;*/
+}
+
+.mui-bar .mui-title {
+	/*margin-top: 10px;*/
+}
+
+#menu {
+	overflow: hidden;
+    margin-top: 16px;
+    position: fixed;
+    top: 44px;
+    width: 100%;
+}
+
+#menu>li {
+	width: 50%;
+	float: left;
+	height: 35px;
+	color: #fff;
+	line-height: 25px;
+	text-align: center;
+	background-color: #71C7D5;
+	position: relative;
+}
+
+#menu>li.menuActive {
+	color: rgb(0, 176, 150);
+}
+
+#menu>li>span {
+	width: 40%;
+	height: 2px;
+	background-color: rgb(0, 176, 150);
+	display: inline-block;
+	position: absolute;
+	bottom: 4px;
+	left: 30%;
+}
+.proAll{
+	margin-top: 65px;
+}

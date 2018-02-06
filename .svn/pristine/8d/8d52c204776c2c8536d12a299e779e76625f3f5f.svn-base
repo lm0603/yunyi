@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的项目</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/store/lm_storeIndex.css" />
+		<link rel="stylesheet" href="../../../css/mycenter/lm_myPro.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--学习卡-->
+				<ul id="">
+					<li class="proAll" style="display: ;">
+						<ul>
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>3项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+
+								</div>
+							</li>
+					
+							<li class="homeList_detail">
+								<div class="homeList_detail_img">
+									<img src="../../../img/about1.png" alt="" />
+								</div>
+
+								<div class="homeList_detail_content">
+									<h3>项目标题项目ss标题项目标题项目标题项目标题</h3>
+									<p class="content_time">2017-07-05</p>
+									<p class="content_point">四川青羊区某某某四川青羊区某某某四川青羊区某某某</p>
+									<p class="content_point_ask h3">负责人：杨医生</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="mengban">
+				<ul class="dt">
+					<li>	
+						<div id="close">
+							X
+						</div></li>
+					<li>
+						<div class="liF">考试项目</div>
+						<div class="liR">直播项目</div>
+					</li>
+					<li>
+						<div class="liF">考试标准</div>
+						<div class="liR">100题，60分钟</div>
+					</li>
+					<li>
+						<div class="liF">合格标准</div>
+						<div class="liR">60分及格</div>
+					</li>
+					<li class="anniu">
+						<p>直播项目未通过可在考核期限内进行补考</p>
+						<button id="ks">
+									开始考试
+					</button>
+					
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../../js/jquery-1.11.0.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				keyEventBind: {
+					backbutton: false //关闭back按键监听
+				},
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					},
+					down: {
+						contentrefresh: '正在加载...',
+						callback: pulldownRefresh,
+						auto: true
+					}
+				}
+			});
+			/**
+			 * 上拉和下拉加载具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(true); //参数为true代表没有更多数据了。
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+
+					console.log("下拉")
+
+				}, 1000);
+			}
+
+			function pullupRefresh() {
+
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+
+					console.log("上拉")
+
+				}, 1000);
+			}
+
+			/**
+			 * 上拉和下拉加载具体业务实现  end
+			 */
+			mui('#pullrefresh').on("tap", "li", function() {
+				this.click();
+			});
+
+			
+			
+			mui("#menu").on("tap", "li", function() {
+				$("#menu>li>span").hide();
+				$(this).css("color", "rgb(0, 176, 150)").siblings().css("color", "white");
+				$(this).find("span").show();
+				$(".proAll").eq($(this).index()).show().siblings().hide();
+			})
+			mui(".proAll").on("tap", ".dati", function() {
+				$("#mengban").show();
+			})
+			
+			mui(".dt").on("tap", "#close", function() {
+				$("#mengban").hide();
+			})
+			mui(".proAll").on("tap", ".qxyy", function() {
+				var proName = "xiangmu";//获取当前项目名字
+				var msg = "请问你是否要取消" + proName;
+
+				plus.nativeUI.confirm(msg, function(e) {
+					console.log(e.value)
+				}, "取消预约", ["确定", "再想想"]);
+			})
+			//			点击详情
+			function goDetail(id) {
+				mui.openWindow({
+					url: "../../win/win_blueLeft.html",
+					id: "win_blueLeft.html",
+					extras: {
+						showurl: "../frm/mycenter/lm_myproDetail2.html",
+						title: "预约项目详情",
+						Sid: id
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>
